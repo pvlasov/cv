@@ -1,2 +1,1 @@
-# resume
-My resume in markdown
+resume.md
