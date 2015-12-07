@@ -1,39 +1,42 @@
-# Resume 
-This is my detailed online resume/CV.
+# Pavel Vlasov 
 
-E-Mail: <vlasov@pavelvlasov.com>
+Work in progress - some formatting is not migrated to markdown yet.
 
-====== Experience ======
-===== Citi =====
-Senior Vice President\\
-Research and Development\\
+## Contact
+
+E-Mail: ``vlasov@pavelvlasov.com``
+
+
+## Experience 
+### Citi
+
+Senior Vice President
+
+Research and Development
+
 March 2005 - Present
 
-==== Continuous Inspection of Non-textual Artifacts ====
-//Work in progress//
 
-A [[http://www.sonarqube.org/|SonarQube]]-like continuous inspection server for non-textual artifacts such as [[http://www.tibco.com/products/automation/application-integration/activematrix-businessworks|TIBCO Business Works]] processes.
-
-==== Tag Management Solution Selection ====
+#### Tag Management Solution Selection
 Participated in a tag management solution selection effort. Evaluated several leading tag management solutions. Created a test harness for comparing difference in web pages performance before and after deployment of the tag management solution. The harness used Selenium Web Driver to load pages in different browsers, [[https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html|Navigation Timing API]] to collect page load timings, and an OSGi/Equinox container with CDO/H2 model repository to store collected data, and Jetty to display stats (min, max, avg, deviation) and charts (using [[http://www.flotcharts.org/|Flot]]).
 
-==== Functional/Acceptance Testing Automation ====
+#### Functional/Acceptance Testing Automation 
 
-=== Web Applications ===
+##### Web Applications
   * Established a process for automated functional testing of Web applications with [[http://docs.seleniumhq.org/projects/webdriver/|Selenium WebDriver]], [[http://junit.org/|JUnit]], and [[http://jenkins-ci.org/|Jenkins]]. 
   * Created JUnit-[[http://www8.hp.com/us/en/software-solutions/quality-center-quality-management/|HP Quality Center]] integration using annotations and Quality Center RESTful API's. 
   * Demonstrated execution of tests in different browsers on different operating systems with Jenkins multi-configuration (matrix) builds and with [[https://code.google.com/p/selenium/wiki/Grid2|Selenium Grid]].
   * Demonstrated different approaches to testing and reporting with plain JUnit, [[http://jbehave.org/|JBehave Web]], [[http://www.thucydides.info/|Thucydides]], and [[https://github.com/Nasdanika/server/wiki/webtest|Nasdanika WebTest]].
 
-=== Mobile Applications ===
+##### Mobile Applications
 Demonstrated an approach to automating functional tests of Android applications in emulators and on real devices with [[http://selendroid.io/|Selendroid]], [[http://appium.io/|Appium]], and Selenium Grid.
 
-==== Continuous Delivery & Continuous Inspection ====
+#### Continuous Delivery & Continuous Inspection 
   * Set up an environment and process for the R&D team to build and deploy Java libraries, J2EE Web applications and TIBCO Business Works processes with Jenkins [[http://maven.apache.org/|Maven]] builds, [[http://www.sonatype.org/nexus/|Sonatype Nexus OSS]], and SonarQube. Jenkins pulls sources from [[https://subversion.apache.org/|Subversion]] and [[https://jazz.net/products/rational-team-concert/|Rational Team Concert]]. 
   * Migrated several existing projects from Ant to Maven.
   * Set up a Continuous Delivery Wiki site with cookbooks and links to the tools and additional information.
 
-==== JavaScript API's ====
+#### JavaScript API's
 Demonstrated how banking domain model can be exposed as JavaScript API in accordance with Web-Oriented Architecture principles. JavaScript was generated from a model because hand-crafting would be labor-intensive and error-prone. The model was created in [[https://www.eclipse.org/modeling/emf/|Eclipse Modeling Framework (EMF)]] and populated either by importing XML schemas or manually using an EMF-generated editor. Generated JavaScript was used either in the browser or on [[http://nodejs.org/|Node.js]] and could retrieve server/back-end data in XML and JSON formats over HTTP and [[wp>WebSocket]]. Measured and compared network traffic using the new approach vs. current, which showed significant reduction. 
 
 An overview of principles and technologies:
@@ -57,7 +60,7 @@ An overview of principles and technologies:
   * Metadata management - classes could have instance and class attributes and functions. Attributes could have default values. Class attributes, as well as instance attributes, could be loaded from services, which in case of class attributes could be static JSON or XML files. Class attributes could be considered as metadata, whereas instance attributes as data. Templates and functions could use both for rendering, e.g. render select or radio group based on a metadata attribute and populate it with items using a data attribute. This approach allowed to customize common (global) classes with region/LOB-specific metadata. From the developer perspective there were no difference between data and metadata - the difference was internal - scope (class or instance) and source of data.
   * QUnit test suite.
 
-==== Collaborative Decision Making ====
+#### Collaborative Decision Making
 Implemented an intranet web application for collaborative decision making with [[wp>Analytic_hierarchy_process|AHP]]. The application was intended to be used to support product selection. The application model had two logical parts:
   * Domain/product/feature model allowed to organize software products into domains and associate features with products.
   * Evaluation model contained alternatives, criteria hierarchy and experts. 
@@ -68,7 +71,7 @@ Experts evaluated alternatives using pairwise comparisons. From the comparisons 
 
 The application used [[https://wiki.eclipse.org/CDO|CDO]] repository to store the model and an Equinox/OSGi application with bundled Jetty as a server.
 
-==== Model-Based Development ====
+#### Model-Based Development
 Demonstrated opportunities to improve development productivity with modeling technologies such as:
   * [[https://www.eclipse.org/modeling/emf/|EMF]]
   * [[https://www.eclipse.org/modeling/gmp/|GMF]]
@@ -79,10 +82,10 @@ In particular:
   * EMF banking model (Bank, Customer, Account, Transaction) with custom EMF resources facading back-end systems and transparent lazy loading of data using EMF proxies.
   * Application of [[https://www.eclipse.org/equinox/p2/|Equinox P2]] concepts extended with a notion of capacity for safe and efficient transactional deployment of multi-component systems to runtime environments.
 
-==== RTC Adoption ====
+#### RTC Adoption
 Championed adoption of RTC by the R&D team.
 
-==== Collaborative UML Modeling ====
+#### Collaborative UML Modeling
 Set up a process and infrastructure for collaborative UML modeling with [[http://www.sparxsystems.com/|Sparx Enterprise Architect]] and subversion for the model repository. Defined repository structure. 
 
 Prepared detailed documentation explaining all steps in collaborative modeling from set up to visual model merging. 
@@ -91,24 +94,24 @@ Provided coaching and support for modeling teams.
 
 Participated in POC's demonstrating model interchange between Enterprise Architect, [[http://www.tibco.com/products/automation/business-process-management|TIBCO BPM]], and [[http://www.blueprintsys.com/solution/|Blueprint]].
 
-==== TIBCO BPM POC ====
+#### TIBCO BPM POC
 Participated in a POC which leveraged TIBCO BPM. 
   * Installed and configured BPM server and prerequisites (LDAP, Oracle) into a cloud virtual machine. Created a process which interacted with [[http://www.tibco.com/products/automation/application-integration/activematrix-businessworks|TIBCO BW]] services. 
   * Knowledge transfer and coaching of the development team.
 
-==== R&D infrastructure ====
+#### R&D infrastructure 
 Set up and maintained infrastructure for the R&D team which consisted of virtual machines, high capacity workstation for storing large binary artifacts including video tutorials, a Wiki site, and some other applications.
 
-==== Distributed Cache Evaluation ====
+#### Distributed Cache Evaluation 
 Participated in a distributed cache evaluation, wrote a test harness and tests which we used to compare different distributed caching solutions. The harness and tests served the role of [[wp>Technology_Compatibility_Kit|TCK]].
 
-==== Call Center Automation ====
+#### Call Center Automation
   * Integration Architect - ESB, back-end connectivity, caching. TIBCO BW, TIBCO Adapter SDK, TIBCO EMS, J2EE Resource adapters, Berkeley DB, IBM MQ, resilient JMS driver for fault tolerance.
   * Telephony integration.
   * Code quality - custom Java inspectors, automated quality inspection for TIBCO BW and Chordiant flows.
   * SOA Utility - WSDL validations, cleanup and transformations.
 
-===== Open Source =====
+### Open Source
 December 2002 - Present
 
   * Hammurapi
@@ -117,16 +120,17 @@ December 2002 - Present
   * JCapture
   * JDraw
 
-===== iGate Global Solutions =====
-Technical Architect\\
+### iGate Global Solutions
+Technical Architect
+
 2000 to 2005
 
   * Integrated automated code review system with the automated build process. This solution enabled automated quality checks of source code delivered by offshore contractors.
   * Implemented automated build application and process, resulting in 2 U.S. patents and generating savings through a personnel reduction , fewer production outages and shorter release cycle. 
   * Implemented a number of middleware components. 
 
-===== Bank of Moscow =====
-Manager of IT Department\\
+### Bank of Moscow 
+Manager of IT Department
 1999 to 2000
 
 Managed 4 IT professionals who supported the branch’s computer park (70 desktops and 4 servers), network and telecommunications. Supported/administered hosted applications and developed custom applications and modules. 
@@ -136,20 +140,22 @@ Managed 4 IT professionals who supported the branch’s computer park (70 deskto
   * Managed Y2K compliance and certification.
   * Implemented bank’s mail system with Microsoft Exchange server and Microsoft Outlook and connected system with the central office Exchange Network to improve communications and saving on phone calls.
 
-===== Inkombank =====
-Senior Specialist\\
+### Inkombank
+Senior Specialist
+
 1996 to 1999
 
 Managed telecommunications, electronic fund transfer systems and development of branch-specific software. 
   * Developed a number of automated solutions to reduce payment handling time and processing cost, and increase robustness of payment processing. 
   * Implemented a business intelligence solution that helped marketing department to concentrate efforts on acquiring most significant clients.  
 
-====== Education ======
-===== Novosibirsk State University =====
-Master of Science in Plasma Physics\\
+## Education 
+### Novosibirsk State University 
+Master of Science in Plasma Physics
+
 1988 to 1993
 
-====== Trainings ======
+## Trainings
   * Web technologies
     * Introduction to HTML5 and CSS3
     * Advanced HTML5
@@ -171,7 +177,8 @@ Master of Science in Plasma Physics\\
     * Using Strategic Thinking Skills
     * An Overview of Agile Methodologies
     * Addressing Stakeholder Conflicts
-====== Self-study ======
+
+## Self-study
   * [[http://www.isbnsearch.org/isbn/9780321125217|Domain-Driven Design: Tackling Complexity in the Heart of Software]]
   * [[http://www.isbnsearch.org/isbn/9780321965516|Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability (3rd Edition)]]
   * [[http://www.isbnsearch.org/isbn/9781118617618|Architecting The Cloud]]
