@@ -1,1 +1,1 @@
-C:/Users/Pavel/git/resume/resume.md
+resume.md
