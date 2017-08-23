@@ -1,24 +1,28 @@
 # Model-Driven Development
 
-This article is about model-driven development and.
-In particular, the article explains how modeling can be leveraged to improve communication, capture and disseminate (organizational) knowledge, reduce amount of manual work and errors. 
+This article is about model-driven development and the benefits it can bring to software development.
+In particular, the article explains how modeling can be leveraged to improve communication, capture and disseminate (organizational) knowledge, and reduce amount of manual work and errors. 
 
-Some modeling and code generation tools mentioned below are part of [EMF](https://www.eclipse.org/modeling/emf/), some are developed by the author and are available at [Eclipse Marketplace](https://marketplace.eclipse.org/) and/or [GitHub](https://github.com/nasdanika). 
+To demonstrate the value of Model-Driven Development I'm going to refer to:
 
-My favorite definition of software development, which I heard many years ago from Ivar Jackobson, goes as follows - _"Software development is a process of binding decisions to make them executable"_. 
-When I started thinking about enterprise software development in terms of the above definition, I've realized that many traditional decision-binding processes are highly inefficient and fragile.
-For example, some decisions may never be documented - they reside in the heads of a certain group of people, other decisions may be captured in a document and then get buried in a document repository.
+* My favorite definition of software development, which I heard many years ago from Ivar Jackobson, goes as follows - _"Software development is a process of binding decisions to make them executable"_.
+* [Building a pipeline vs. hauling buckets](http://www.getmotivation.com/prosperity/wealth-pipline-Robert-Kiyosaki.htm) story by Robert Kiyosaki - primarily relevant to model transformation/code generation.
+
+When I started thinking about enterprise software development in terms of the above definition and pipline vs. buckets metaphor, I've realized that many traditional decision-binding processes are highly inefficient and fragile
+- "buckets" of knowledge are hauled over and over for each new project - from one person or group to another through documents or conversations. 
+Similar to the story, along the way the knowledge spills (people forget), gets dirty (misinterpretation) and becomes stale (gets outdated).
+
 Also there is a great deal of manual binding of decisions - e.g. writing repetitive database access code which follows the same pattern for hundreds if not thousands of fields.  
    
 Some of disadvantages of manual decision binding, such as repetitive coding mentioned above, are:
 
-* Low speed of change propagation - if the database structure changes or the access pattern changes, then access code shall be manually re-coded.
+* Low speed of change propagation - if the database structure changes or the access pattern changes, then access code shall be manually re-coded. What actually happens more often is that the new and better pattern is never implemented - due to the risk of touching working code, and required time and effort - "What goes in, stays in".
 * High cost.
 * High probability of error - the old "To err is human".
   
-I'm going to use the above definition to demonstrate how different Model-Driven Development technologies may help to make the decision binding process faster and more robust.
-
 ## A very quick overview of EMF (Core)
+
+Let's start with a quick look at [EMF](https://www.eclipse.org/modeling/emf/) because some modeling and code generation tools mentioned below are part of EMF, and some are based on EMF - these tools/frameworks are developed by the author and are available at [Eclipse Marketplace](https://marketplace.eclipse.org/) and/or [GitHub](https://github.com/nasdanika). 
 
 In EMF one develops applications in the following way:
 
@@ -43,16 +47,37 @@ Once you have a model it can be:
 
 Also models can cross-reference each other so a large logical model may be broken into several resources (e.g. files) with different lifecycles and owned/maintained by different teams.
 
-There are many more cool features of EMF, e.g. transparent support of bi-directional references, change recording, CDO transaction handlers, ... but it's enough for a start.
+There are many more cool features of EMF, e.g. transparent support of bi-directional references, change recording, CDO transaction handlers, validations, transparent resolution of proxy objects, ... but it's enough for a start.
 You can check the web pages of different EMF technologies mentioned above to learn about how they can help you to build software better. 
 In the following sections I'm going to provide a quick overview of Nasdanika CDO Web Bundle and Code Generators and explain several usage scenarios.
 
+EMF make decision binding faster and more robust in the following ways:
+
+* Organizational/domain knowledge can be captured in models. The models can be annotated with additional information, e.g. descriptions of model elements. 
+* Model documentation can be published to internet/intranet so it is available to a wide audience for (re)view, refine and form a common understanding of the problem domain. 
+* Information can be entered into the models using a wide variety of generated editors - diagram, web, text, tree, forms - with validation of data being entered. 
 
 ## Nasdanika CDO Web Bundle
 
+Nasdanika CDO Web Bundle ``org.nasdanika.cdo.web`` allows to interact with objects stored in a CDO repository over HTTP. It does it in the following way:
+
+* Each CDO object as a URL, by defaults something like ``http://myserver/myapp/router/objects/L123``. Under this URL an object may have sub-URL's mapping to features and EOperations.
+* 
+
+The difference between this bundle and ECP is that ECP leverages [RAP](https://www.eclipse.org/rap/) and RAP is a Web widget toolkit which looks to the rest of the application as SWT components. 
+This is a very powerful approach because it allows to expose existing SWT UI's to the web, but it doesn't support per-feature access control and non-widget requests, e.g. REST API calls.  
+     
 Difference from ECP. Object URI's.
 
 Uses - existing, general pattern.
+
+https://github.com/Nasdanika/server/blob/master/org.nasdanika.cdo.web/doc/application-rendering.md
+
+## Nasdanika CDO Web Doc Bundle
+
+and its companion documentation bundle ``org.nasdanika.cdo.web.doc``
+
+TODO - screenshot(s)?
 
 ## Code Generation  
 
@@ -120,7 +145,11 @@ Improvement of internal processes.
 Knowledge gathering - ask people of possible contribution - enter data into Word/Excel document and save on SharePoint, give them a tool, e.g. an intranet web application. Many a micle makes a muckle.
 
 
-Right time binding. 
+Right time binding.
+
+Avoid EMF dependency - generate code and/or XML/JSON/YAML configuration.
+
+Code merging, transformation. 
 
 Mainframe -> MS Word - Apache POI -> model.
 
@@ -131,6 +160,8 @@ Multiple representaion of the same model - XText - https://www.eclipse.org/Xtext
 compilation/translation vs interpretation
 
 Merging - not everything can be generated.
+
+
 
 ## Knowledge pipeline
 
@@ -143,6 +174,21 @@ Organizational knowledge delivered to customers as executable software.
 Alternative cost college education vs. work. 
 
 Extending CI/CD pipeline.
+
+```uml
+@startuml
+
+    Class Stage
+    Class Timeout {
+        +constructor:function(cfg)
+        +timeout:function(ctx)
+        +overdue:function(ctx)
+        +stage: Stage
+    }
+     Stage <|-- Timeout
+
+@enduml
+```
 
 
 ## Chronology
