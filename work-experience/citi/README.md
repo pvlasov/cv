@@ -16,6 +16,14 @@ Static analysis of custom artifacts
 
 Generation of mainframe client library 
 
+## Cloud and Integration Services
+
+Product owner
+
+### Cloud Console
+
+Configuration, advisory
+
 ### Citi
 
 

@@ -61,17 +61,23 @@ EMF make decision binding faster and more robust in the following ways:
 
 Nasdanika CDO Web Bundle ``org.nasdanika.cdo.web`` allows to interact with objects stored in a CDO repository over HTTP. It does it in the following way:
 
-* Each CDO object as a URL, by defaults something like ``http://myserver/myapp/router/objects/L123``. Under this URL an object may have sub-URL's mapping to features and EOperations.
-* 
+* Each CDO object has a URL, by defaults something like ``http://myserver/myapp/router/objects/L123``. Under this URL an object may have sub-URL's mapping to features and EOperations.
+* Contextual execution - for each request the routing servlet opens a transaction and "merges" HTTP request context and CDO transaction request context.
+* A number of annotations are provided to declaratively match processing methods to request values, check authorization, apply repository locks and bind values to arguments of request processing methods/EOperations, e.g. request header value or OSGi service.
+* Object/feature/operation level access control can be implemented declaratively in the model or programmatically. It also can be checked declaratively using method annotations or programmatically. In the latter case the application may modify its behavior based on principal entitlements.
+
+All of this reduces amount of plumbing code - developers wire methods to requests with annotations and naming conventions and then focus on the request processing logic.      
 
 The difference between this bundle and ECP is that ECP leverages [RAP](https://www.eclipse.org/rap/) and RAP is a Web widget toolkit which looks to the rest of the application as SWT components. 
 This is a very powerful approach because it allows to expose existing SWT UI's to the web, but it doesn't support per-feature access control and non-widget requests, e.g. REST API calls.  
      
-Difference from ECP. Object URI's.
+[Application rendering](https://github.com/Nasdanika/server/blob/master/org.nasdanika.cdo.web/doc/application-rendering.md) part of the bundle renders [Bootstrap](http://getbootstrap.com/)-based Web UI
+using model metadata. Default rendering can be customized with model annotations and/or resource bundles properties and by overriding rendering methods. 
+This approach follows 90/9/1 rule - 90% of time the default rendering does the job, 9% of time customizations maybe achieved using annotations and a rendering method override is required in 1% of cases.
 
-Uses - existing, general pattern.
+Web UI elements for documented model elements feature help icons with tooltips. Mouse click on such icons opens a documentation dialog or navigates to the integrated model documentation (see below). This feature, along with the UI following the structure of the domain model, helps users to understand the UI behavior by studying the model documentation.  
 
-https://github.com/Nasdanika/server/blob/master/org.nasdanika.cdo.web/doc/application-rendering.md
+This bundle was used to build a number of intranet web applications, including the [Cloud Console](../work-experience/citi/#cloud-console). 
 
 ## Nasdanika CDO Web Doc Bundle
 
@@ -175,22 +181,7 @@ Alternative cost college education vs. work.
 
 Extending CI/CD pipeline.
 
-```uml
-@startuml
-
-    Class Stage
-    Class Timeout {
-        +constructor:function(cfg)
-        +timeout:function(ctx)
-        +overdue:function(ctx)
-        +stage: Stage
-    }
-     Stage <|-- Timeout
-
-@enduml
-```
-
 
 ## Chronology
 
-How the vision/passion evolved.
+How the vision evolved - AWK, Antlr/Hammurapi/Jsel, ...

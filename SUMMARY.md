@@ -1,4 +1,5 @@
-* [Model-Driven Development](model-driven-development/README.md)
+* Strengths
+    * [Model-Driven Development](model-driven-development/README.md)
 * Work experience
     * [Citi Global Consumer Group](work-experience/citi/README.md)
     * [iGate Global Solutions](work-experience/igate/README.md)
