@@ -1,24 +1,7 @@
 # Model-Driven Development
 
 This article is about model-driven development and the benefits it can bring to software development.
-In particular, the article explains how modeling can be leveraged to improve communication, capture and disseminate (organizational) knowledge, and reduce amount of manual work and errors. 
-
-To demonstrate the value of Model-Driven Development I'm going to refer to:
-
-* My favorite definition of software development, which I heard many years ago from Ivar Jackobson, goes as follows - _"Software development is a process of binding decisions to make them executable"_.
-* [Building a pipeline vs. hauling buckets](http://www.getmotivation.com/prosperity/wealth-pipline-Robert-Kiyosaki.htm) story by Robert Kiyosaki - primarily relevant to model transformation/code generation.
-
-When I started thinking about enterprise software development in terms of the above definition and pipline vs. buckets metaphor, I've realized that many traditional decision-binding processes are highly inefficient and fragile
-- "buckets" of knowledge are hauled over and over for each new project - from one person or group to another through documents or conversations. 
-Similar to the story, along the way the knowledge spills (people forget), gets dirty (misinterpretation) and becomes stale (gets outdated).
-
-Also there is a great deal of manual binding of decisions - e.g. writing repetitive database access code which follows the same pattern for hundreds if not thousands of fields.  
-   
-Some of disadvantages of manual decision binding, such as repetitive coding mentioned above, are:
-
-* Low speed of change propagation - if the database structure changes or the access pattern changes, then access code shall be manually re-coded. What actually happens more often is that the new and better pattern is never implemented - due to the risk of touching working code, and required time and effort - "What goes in, stays in".
-* High cost.
-* High probability of error - the old "To err is human".
+In particular, the article explains how modeling can be leveraged to improve communication, capture and disseminate domain/organizational knowledge, and reduce amount of manual work and errors. 
   
 ## A very quick overview of EMF (Core)
 
@@ -51,7 +34,7 @@ There are many more cool features of EMF, e.g. transparent support of bi-directi
 You can check the web pages of different EMF technologies mentioned above to learn about how they can help you to build software better. 
 In the following sections I'm going to provide a quick overview of Nasdanika CDO Web Bundle and Code Generators and explain several usage scenarios.
 
-EMF make decision binding faster and more robust in the following ways:
+EMF provides the following benefits:
 
 * Organizational/domain knowledge can be captured in models. The models can be annotated with additional information, e.g. descriptions of model elements. 
 * Model documentation can be published to internet/intranet so it is available to a wide audience for (re)view, refine and form a common understanding of the problem domain. 
@@ -81,14 +64,56 @@ This bundle was used to build a number of intranet web applications, including t
 
 ## Nasdanika CDO Web Doc Bundle
 
-and its companion documentation bundle ``org.nasdanika.cdo.web.doc``
+``org.nasdanika.cdo.web.doc`` is a "companion" bundle for the ``org.nasdanika.cdo.web`` and it provides functionality for serving integrated documentation:
 
-TODO - screenshot(s)?
+* Bundles, components and services information, including auto-generated dynamic UML diagrams. This allows to take a glimpse into the running application to better understand relationships between different application parts.
+* Models documentation, also including auto-generated dynamic UML class diagrams. Such diagrams help in understanding of relationships between model elements.
+* Hand-crafted documentation, e.g. user or developer manuals. The documentation may reference model elements and bundles/components.  
 
-## Code Generation  
+## Code Generation
+
+This section explains advantages of model-driven approaches to code generation. The picture below demonstrates the process of code generation, 
+although it also applies to software development in general - knowledge is transformed into executable software which delivers value to customers. 
 
 ![tree](code-generation-tree.png)
+  
+To demonstrate the value of (Model-Driven) Code Generation I'm going to refer to:
 
+* My favorite definition of software development, which I heard many years ago from Ivar Jackobson, goes as follows - _"Software development is a process of binding decisions to make them executable"_.
+* [Building a pipeline vs. hauling buckets](http://www.getmotivation.com/prosperity/wealth-pipline-Robert-Kiyosaki.htm) story by Robert Kiyosaki.
+
+If you think about enterprise software development in terms of the above definition and pipline vs. buckets metaphor, you will likely realize that in  many traditional development processes 
+"buckets" of knowledge are hauled over and over for each new project - from one person or group to another through documents or conversations. 
+Similar to the story, along the way the knowledge spills (people forget), gets dirty (misinterpretation) and becomes stale (gets outdated).
+
+Also there is a great deal of manual binding of decisions - e.g. writing repetitive database access code which follows the same pattern for hundreds if not thousands of fields.  
+   
+Some of disadvantages of manual decision binding, such as repetitive coding mentioned above, are:
+
+* Low speed of change propagation - if the database structure changes or the access pattern changes, then access code shall be manually re-coded. What actually happens more often is that the new and better pattern is never implemented - due to the risk of touching working code, and required time and effort - "What goes in, stays in".
+* High cost.
+* High probability of error - the old "To err is human".
+
+Code generation, or model transformation to speak more generally, helps to address these problems by transforming input data/model into output data/model, which can be either used by an executable software or
+be an executable software itself. For example, XML file can be transformed into Java sources using templates.
+
+This process may be compared to multiplication - application of automated transformation to multiple inputs - as opposed to addition - manually coding output for each input. 
+As with multiplication and addition there is a break-even point - e.g. if the transformation shall be applied only once, then it is more efficient to do it manually, but if it is going to be 
+applied many times over, it may make sense to do it manually once, then parameterize, templatize and automate.
+
+In my experience, transformations/templates tend to become too complex and difficult to understand pretty quickly. 
+Sections below outline several tools and approaches which help to simplify the transformation/code generation process and keep it clear and understandeable.         
+
+### Nasdanika Codegen
+
+#### Generators model
+
+#### EMF Forms based wizard
+
+
+### Nasdanika Codegen Ecore
+
+#### Web UI Generation Target
 
 The core modeling technology, on which most of the other technologies mentioned in this article are built, is  - Eclipse Modeling Framework.    
 
@@ -184,4 +209,4 @@ Extending CI/CD pipeline.
 
 ## Chronology
 
-How the vision evolved - AWK, Antlr/Hammurapi/Jsel, ...
+How the vision evolved - AWK, Antlr/Hammurapi/Jsel, SQL compiler. 
