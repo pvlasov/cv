@@ -30,7 +30,8 @@ In EMF one develops applications in the following way:
 * Generates model code and optionally edit and editor code.
 * Implements business logic either as EOperations, or as external classes working on the model, or as a combination of thereof. 
 
-One of very strong features of EMF is automated merging of generated and hand-crafted code. And a nice thing is that one can use this functionality in their [own code](https://github.com/Nasdanika/codegen/blob/118f9dc88f5f568d144564c6c5f623c0ce32ce74/org.nasdanika.codegen/src/org/nasdanika/codegen/java/impl/CompilationUnitImpl.java#L159). 
+One of very strong features of EMF is automated merging of generated and hand-crafted code. And a nice thing is that one can use this functionality in their [own code](https://github.com/Nasdanika/codegen/blob/118f9dc88f5f568d144564c6c5f623c0ce32ce74/org.nasdanika.codegen/src/org/nasdanika/codegen/java/impl/CompilationUnitImpl.java#L159).
+While code generation and modeling provide immense benefits, manual coding is still required. With auto-merging a person writing method implementations operates in the context of code generated from a model. The generated code provides higher level structure and plumbing allowing the developer to focus on coding a particular piece of functionality. 
 
 It is also possible to create models with [XCore](https://wiki.eclipse.org/Xcore), but I faced some issues trying to persist XCore-generated models into a CDO repository.
 
@@ -83,7 +84,7 @@ This approach follows 90/9/1 rule - 90% of time the default rendering does the j
 
 Web UI elements for documented model elements feature help icons with tooltips. Mouse click on such icons opens a documentation dialog or navigates to the integrated model documentation (see below). This feature, along with the UI following the structure of the domain model, helps users to understand the UI behavior by studying the model documentation.  
 
-This bundle was used to build a number of intranet web applications, including the [Cloud Console](../work-experience/citi/#cloud-console). 
+This bundle was used to build a number of intranet web applications, including the [Cloud Console](../work-experience/citi/#cloud-console), [Analysis Repository](../work-experience/citi/#analysis-repository), and [Collaborative Decision Making](../work-experience/citi/#collaborative-decision-making). 
 
 ## Nasdanika CDO Web Doc Bundle
 
@@ -128,7 +129,13 @@ There are multiple ways to generate code. For example, Eclipse resources API to 
 It also provides a model editor and abstract classes for creating code generation wizards. 
 
 Using the generator model editor experts in a particular technology, say Spring Boot, can create generator models in a visual way and without having to deal with low-level generation API's. 
-Also the model and the editor makes it easier to understand the generation process and refine it, as well to modify it when requirements change.   
+Also the model and the editor makes it easier to understand the generation process and refine it, as well to modify it when requirements change.
+
+The generator model allows to assemble Java classes from multiple pieces. 
+
+Generator controllers can be used to pull additional information from different sources. For example, a controller may use [Apache POI](https://poi.apache.org/) to read Microsoft Word and Excel documents stored in SharePoint. 
+In a prototype I was able to read hundreds of tables with thousands of rows representing mainframe data structures. This data could be used to generate either a mainframe access layer or a mainframe ECore model which would then could be used to generate
+bounded contexts and Anti-Corruption Layers for micro-services (see below).     
 
 #### Wizard model and EMF Forms based wizard
 
@@ -162,131 +169,22 @@ This is how this problem can be solved with Nasdanika Codegen Ecore:
 In this case the repository model is used as the input model to select elements to be exposed through the Web UI. The generator model can be used to configure how the elements are to be exposed.
 The generator target outputs rendering and routing classes as well as resource bundles to be used by the Nasdanika CDO Web Bundle Application Rendering framework. 
 
-
-
-
-The core modeling technology, on which most of the other technologies mentioned in this article are built, is  - Eclipse Modeling Framework.    
-
-80/20 principle. No coding is a myth - 2000 characters-long XPath expressions. As little coding as possible - heighten the level of abstraction.
-
-
-
-
-
-improving communication
-
-Tree picture.
-
-extracting knowledge
-
-speak to SME's using their language.
-
-90% mistakes due to poor communication
-
-Links to resume pages.
-
-
-Vast enterprise metadata, including Word and Excel documents - example of pulling out mainframe data definitions from a Word document using Apache POE. Pull from SP, read Word doc.
-
-Pull from SVN.
-
-Information center, static model doc generation - in progress.
-
-Codegen wizard model - minimal if any coding, saving the model for later re-use, possibility of using the Web UI for filling-out the model and then generating code.
-
-Why CDO - XML and repo persistence.
-
-Overview of model projects and their purpose - security - role-base access, how it is different from CDO security, cdo.web, code generators - ecore - bounded context, ...
-
-Annotations - markdown, YAML. Validations. Multiple representations - editor, web, diagram (Sirius), grammar (XText/XCore). EMF Forms simplify user input.
-
-Merging of manual and generated code. A person writing method implementations operates in the bounded context of the generated model - they can focus on the method to implement and higher level structure is generated from the models.
-
- 
-Codegen - constructing Java classes from pieces - different pieces might be owned by different teams and pull information from different sources.
-
-Tried different metadata - database - limited, no behavior. XML - too much work to set up tooling/schema.
-
-Early/late binding - generate-in, configuration at runtime
-
-Problems with late binding: 
-
-* No control 
-    * Developers may mess at development time - misinterpret the design document.
-    * Operations may mess at deployment time. 
-* Hard to troubleshoot - limited access to production and too many permutations of configuration.
-
-Effective knowledge is important in large organizations - repetitive patterns specific to the organization. Cookbooks are subject to interpretations, and sometimes don't get updated due to time pressures.
-
-
-Addition vs. multiplication.
-
-Improvement of internal processes.
-
-Knowledge gathering - ask people of possible contribution - enter data into Word/Excel document and save on SharePoint, give them a tool, e.g. an intranet web application. Many a micle makes a muckle.
-
-
-Right time binding.
-
-Avoid EMF dependency - generate code and/or XML/JSON/YAML configuration.
-
-Code merging, transformation. 
-
-Mainframe -> MS Word - Apache POI -> model.
-
-Screenshots - Generator model, Ecore editor - check, Generated doc (Info center and static later).
-
-Multiple representaion of the same model - XText - https://www.eclipse.org/Xtext/, Sirius - https://www.eclipse.org/sirius/, different parts of the overall model may be created/edited by different editors.
-
-compilation/translation vs interpretation
-
-Merging - not everything can be generated.
-
-To demonstrate the value of (Model-Driven) Code Generation I'm going to refer to [Building a pipeline vs. hauling buckets](http://www.getmotivation.com/prosperity/wealth-pipline-Robert-Kiyosaki.htm) story by Robert Kiyosaki.
-
-If you think about enterprise software development in terms of the above definition and pipline vs. buckets metaphor, you will likely realize that in  many traditional development processes 
-"buckets" of knowledge are hauled over and over for each new project - from one person or group to another through documents or conversations. 
-Similar to the story, along the way the knowledge spills (people forget), gets dirty (misinterpretation) and becomes stale (gets outdated).
-
-Also there is a great deal of manual binding of decisions - e.g. writing repetitive database access code which follows the same pattern for hundreds if not thousands of fields.  
-   
-Some of disadvantages of manual decision binding, such as repetitive coding mentioned above, are:
-
-* Low speed of change propagation - if the database structure changes or the access pattern changes, then access code shall be manually re-coded. What actually happens more often is that the new and better pattern is never implemented - due to the risk of touching working code, and required time and effort - "What goes in, stays in".
-* High cost.
-* High probability of error - the old "To err is human".
-
-
-
-
-## Knowledge pipeline
-
-Command line generation, build pipeline, rule engine, multiple inputs
-
-Kiosaki - http://www.reducestressnow.net/pipeline/ - Are you Hauling Buckets - or Building a Pipeline?
-
-talk to SME - carry, spill. Pipeline - knowledge carried along and transformed automatically. Takes time to build. Makes sense for repetitive processes.
-
-Organizational knowledge delivered to customers as executable software.
-
-Alternative cost college education vs. work. 
-
-Extending CI/CD pipeline.
-
-Generation process can be customized 
-Word POI (almost real life) example - controller pulling info from MLI's using config property (URL) to generate java beans. 
-
-
-
 ## Summary
 
-create models, intranet web apps, generator models, enhance knowledge extraction, extend ci/cd pipeline
+I hope that article will help you to discern more opportunities to improve software development practices in your organization as well as give you some ideas regarding how it can be done. 
 
-use your best talent to prototype and identify patterns and create code generators which will be used over and over throughout the organization in a robust and repeatable way
+Below are some steps you may take:
 
-de-clog knowledge pipelines. 
+* Capture domain knowledge in documented models and host model documentation on the intranet.
+* Capture repetitive coding patterns in generation model and create wizards for materializing those patterns.
+* Improve knowledge gathering - ask people for possible contribution - enter data into Word/Excel document and save on SharePoint, give them a tool, e.g. an intranet web application or a specialized GUI model editor. Many a micle makes a muckle.
+* Incorporate code generation into the build process - code generators do not require GUI and may be invoked in a headless fashion from an [IApplication](http://help.eclipse.org/oxygen/topic/org.eclipse.platform.doc.isv/reference/api/org/eclipse/equinox/app/IApplication.html) implementation. Using an example above there can be a process monitoring SharePoint file with mainframe data structures definitions for modifications and triggering generation of Ecore model from the file. This way knowledge is automatically propagated - mainframe people don't have to learn new tools and techniques - they just update the file following a pre-defined format, and the rest is taken care of by generators.
+* Create web applications based on captured domain models to automate and improve internal processes.
+* When adopting a new technology use your best talent to prototype and identify patterns and create code generators which will be used over and over throughout the organization in a robust and repeatable way instead or in addition to creation of presentations and cookbooks.
+* Convert existing cookbooks to code generators where it makes sense.
 
+## Appendix: Chronology
 
-## Chronology
+Work in progress - How the vision evolved - AWK, Antlr/Hammurapi/Jsel, SQL compiler. 
+Tried different metadata - database - limited, no behavior. XML - too much work to set up tooling/schema.
 
-How the vision evolved - AWK, Antlr/Hammurapi/Jsel, SQL compiler. 
