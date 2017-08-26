@@ -1,5 +1,9 @@
 # Citi Global Consumer Group
 
+March 2005 - Present
+
+__Work in progress__
+
 Cloud console - configuration and advisory
 
 Code generators
@@ -22,47 +26,42 @@ Product owner
 
 ### Cloud Console
 
-Configuration, advisory
+Intranet web application for managing micro-services configuration, cloud advisory - utilization, etc. - pulls data from cloud REST API's, analyzes and displays to the users.
 
-### Citi
+TODO - more details.
 
+## Application Modernization
 
-Senior Vice President
+### Analysis repository
 
-Cloud integration services
+Intranet web application providing visibility to large codebases.
 
-code generators
-advisory
-console
+TODO - more details.
 
-app modernization
-
-
-Research and Development
-
-March 2005 - Present
+## Research and Development
 
 
-#### Tag Management Solution Selection
+
+### Tag Management Solution Selection
 Participated in a tag management solution selection effort. Evaluated several leading tag management solutions. Created a test harness for comparing difference in web pages performance before and after deployment of the tag management solution. The harness used Selenium Web Driver to load pages in different browsers, [[https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html|Navigation Timing API]] to collect page load timings, and an OSGi/Equinox container with CDO/H2 model repository to store collected data, and Jetty to display stats (min, max, avg, deviation) and charts (using [[http://www.flotcharts.org/|Flot]]).
 
-#### Functional/Acceptance Testing Automation 
+### Functional/Acceptance Testing Automation 
 
-##### Web Applications
+#### Web Applications
   * Established a process for automated functional testing of Web applications with [[http://docs.seleniumhq.org/projects/webdriver/|Selenium WebDriver]], [[http://junit.org/|JUnit]], and [[http://jenkins-ci.org/|Jenkins]]. 
   * Created JUnit-[[http://www8.hp.com/us/en/software-solutions/quality-center-quality-management/|HP Quality Center]] integration using annotations and Quality Center RESTful API's. 
   * Demonstrated execution of tests in different browsers on different operating systems with Jenkins multi-configuration (matrix) builds and with [[https://code.google.com/p/selenium/wiki/Grid2|Selenium Grid]].
   * Demonstrated different approaches to testing and reporting with plain JUnit, [[http://jbehave.org/|JBehave Web]], [[http://www.thucydides.info/|Thucydides]], and [[https://github.com/Nasdanika/server/wiki/webtest|Nasdanika WebTest]].
 
-##### Mobile Applications
+#### Mobile Applications
 Demonstrated an approach to automating functional tests of Android applications in emulators and on real devices with [[http://selendroid.io/|Selendroid]], [[http://appium.io/|Appium]], and Selenium Grid.
 
-#### Continuous Delivery & Continuous Inspection 
+### Continuous Delivery & Continuous Inspection 
   * Set up an environment and process for the R&D team to build and deploy Java libraries, J2EE Web applications and TIBCO Business Works processes with Jenkins [[http://maven.apache.org/|Maven]] builds, [[http://www.sonatype.org/nexus/|Sonatype Nexus OSS]], and SonarQube. Jenkins pulls sources from [[https://subversion.apache.org/|Subversion]] and [[https://jazz.net/products/rational-team-concert/|Rational Team Concert]]. 
   * Migrated several existing projects from Ant to Maven.
   * Set up a Continuous Delivery Wiki site with cookbooks and links to the tools and additional information.
 
-#### JavaScript API's
+### JavaScript API's
 Demonstrated how banking domain model can be exposed as JavaScript API in accordance with Web-Oriented Architecture principles. JavaScript was generated from a model because hand-crafting would be labor-intensive and error-prone. The model was created in [[https://www.eclipse.org/modeling/emf/|Eclipse Modeling Framework (EMF)]] and populated either by importing XML schemas or manually using an EMF-generated editor. Generated JavaScript was used either in the browser or on [[http://nodejs.org/|Node.js]] and could retrieve server/back-end data in XML and JSON formats over HTTP and [[wp>WebSocket]]. Measured and compared network traffic using the new approach vs. current, which showed significant reduction. 
 
 An overview of principles and technologies:
@@ -86,7 +85,7 @@ An overview of principles and technologies:
   * Metadata management - classes could have instance and class attributes and functions. Attributes could have default values. Class attributes, as well as instance attributes, could be loaded from services, which in case of class attributes could be static JSON or XML files. Class attributes could be considered as metadata, whereas instance attributes as data. Templates and functions could use both for rendering, e.g. render select or radio group based on a metadata attribute and populate it with items using a data attribute. This approach allowed to customize common (global) classes with region/LOB-specific metadata. From the developer perspective there were no difference between data and metadata - the difference was internal - scope (class or instance) and source of data.
   * QUnit test suite.
 
-#### Collaborative Decision Making
+### Collaborative Decision Making
 Implemented an intranet web application for collaborative decision making with [[wp>Analytic_hierarchy_process|AHP]]. The application was intended to be used to support product selection. The application model had two logical parts:
   * Domain/product/feature model allowed to organize software products into domains and associate features with products.
   * Evaluation model contained alternatives, criteria hierarchy and experts. 
@@ -97,7 +96,7 @@ Experts evaluated alternatives using pairwise comparisons. From the comparisons 
 
 The application used [[https://wiki.eclipse.org/CDO|CDO]] repository to store the model and an Equinox/OSGi application with bundled Jetty as a server.
 
-#### Model-Based Development
+### Model-Based Development
 Demonstrated opportunities to improve development productivity with modeling technologies such as:
   * [[https://www.eclipse.org/modeling/emf/|EMF]]
   * [[https://www.eclipse.org/modeling/gmp/|GMF]]

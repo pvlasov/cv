@@ -11,7 +11,7 @@ Based on this definition we can say that in order to efficiently build good soft
 
 Metaphorically speaking, to build a good house one needs quality bricks (decisions) and mortar (binding process).
 
-Making a good decision requires good knowledge of the problem and the domain. In enterprise software development such knowledge is distributed among multiple groups - business 
+Making a good decision requires deep knowledge of the problem and the domain. In enterprise software development such knowledge is distributed among multiple groups - business 
 knows what to build, developers know how to build, and infrastructure knows about the systems the new system will have to integrate with and also where and how to deploy the new system.
 Thus, enterprise software development involves extraction of knowledge from a number of groups, conversion of that knowledge to decisions which are then bound together into an executable system.
 
@@ -26,7 +26,7 @@ It is important to keep in mind that all models are wrong - they don't describe 
 For example, a map is a model of territory. The map is not the territory it describes and it shouldn't be. There may be different maps describing the same territory and highlighting different aspects, with each map being useful for its particular purpose.
 
 So read on to find out how (domain) modeling can be leveraged to capture and disseminate domain/organizational knowledge, and reduce amount of manual effort, errors, and inefficiencies in software development practices.
-There is a [companion presentation](TODO) which contains key point and illustration. It might be a good idea to go through the presentation before reading this article - to get a general idea and decide whether it is of interest for you at all.  
+There is a [companion presentation](https://www.slideshare.net/PavelVlasov2/modeldriven-development-and-code-generation) which contains key points and illustration. It might be a good idea to go through the presentation before reading this article - to get a general idea and decide whether it is of interest for you at all.  
   
 ## A very quick overview of EMF (Core)
 
@@ -191,7 +191,11 @@ This is how this problem can be solved with Nasdanika Codegen Ecore:
 In this case the repository model is used as the input model to select elements to be exposed through the Web UI. The generator model can be used to configure how the elements are to be exposed.
 The generator target outputs rendering and routing classes as well as resource bundles to be used by the Nasdanika CDO Web Bundle Application Rendering framework. 
 
-The generation is performed by a generator model created with the Nasdanika Codegen and accompanied by several controllers.
+The generation is performed by a generator model created with the Nasdanika Codegen and accompanied by several controllers. With this target the output is created by "multiplication" of three models:
+
+* Target generator model.
+* Target configuration model.
+* Selection model.
 
 ## Call for action
 
@@ -211,7 +215,7 @@ Below are some steps you may take:
 ## References
 
 * [Nasdanika](https://github.com/Nasdanika).
-* [Companion presentation](TODO) - key points and illustrations.
+* [Companion presentation](https://www.slideshare.net/PavelVlasov2/modeldriven-development-and-code-generation) - key points and illustrations.
 
 ## Appendix: Chronology
 
