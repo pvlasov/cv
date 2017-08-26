@@ -25,7 +25,8 @@ So, by their definition, domain models shall be useful for capturing and sharing
 It is important to keep in mind that all models are wrong - they don't describe reality in its entirety, but only some aspects of it relevant to the problem at hand. As such a particular model may  be quite useful to solve one problem and totally useless for another. 
 For example, a map is a model of territory. The map is not the territory it describes and it shouldn't be. There may be different maps describing the same territory and highlighting different aspects, with each map being useful for its particular purpose.
 
-So read on to find out how (domain) modeling can be leveraged to capture and disseminate domain/organizational knowledge, and reduce amount of manual effort and errors. 
+So read on to find out how (domain) modeling can be leveraged to capture and disseminate domain/organizational knowledge, and reduce amount of manual effort, errors, and inefficiencies in software development practices.
+There is a [companion presentation](TODO) which contains key point and illustration. It might be a good idea to go through the presentation before reading this article - to get a general idea and decide whether it is of interest for you at all.  
   
 ## A very quick overview of EMF (Core)
 
@@ -166,7 +167,8 @@ This approach makes building code generation wizards much easier because develop
 
 ### Nasdanika Codegen Ecore
 
-[Nasdanika Codegen Ecore](https://github.com/Nasdanika/codegen-ecore) allows to generate code for selected elements of the source model using selected generation targets.
+[Nasdanika Codegen Ecore](https://github.com/Nasdanika/codegen-ecore) allows to generate code for selected elements of the source model using selected generation targets. 
+Generation targets may contribute configuration model elements to allows users to customize generation. EMF Forms or EObjectRenderer are used to render the configuration model elements thus freeing the generator developers from having to work with SWT/JFace. 
 
 Speaking in [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) terms, it allows to generate Bounded Context and Anti-Corruption Layer from the canonical domain model and generators for a particular back-end. 
 
@@ -188,6 +190,8 @@ This is how this problem can be solved with Nasdanika Codegen Ecore:
 [Nasdanika Codegen Ecore Web UI Generation Target](https://github.com/Nasdanika/codegen-ecore-web-ui) is a concrete example of the above scenario. 
 In this case the repository model is used as the input model to select elements to be exposed through the Web UI. The generator model can be used to configure how the elements are to be exposed.
 The generator target outputs rendering and routing classes as well as resource bundles to be used by the Nasdanika CDO Web Bundle Application Rendering framework. 
+
+The generation is performed by a generator model created with the Nasdanika Codegen and accompanied by several controllers.
 
 ## Call for action
 
