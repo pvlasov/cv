@@ -23,7 +23,7 @@ which are abstract representations of the knowledge and activities that govern a
 So, by their definition, domain models shall be useful for capturing and sharing knowledge.
 
 It is important to keep in mind that all models are wrong - they don't describe reality in its entirety, but only some aspects of it relevant to the problem at hand. As such a particular model may  be quite useful to solve one problem and totally useless for another. 
-For example, a map is a model of territory. The map is not the territory it describes and it shouldn’t be. There may be different maps describing the same territory and highlighting different aspects, with each map being useful for its particular purpose.
+For example, a map is a model of territory. The map is not the territory it describes and it shouldn't be. There may be different maps describing the same territory and highlighting different aspects, with each map being useful for its particular purpose.
 
 So read on to find out how (domain) modeling can be leveraged to capture and disseminate domain/organizational knowledge, and reduce amount of manual effort and errors. 
   
