@@ -70,7 +70,7 @@ EMF provides the following benefits:
 
 Nasdanika CDO Web Bundle ``org.nasdanika.cdo.web`` allows to interact with objects stored in a CDO repository over HTTP. It does it in the following way:
 
-* Each CDO object has a URL, something like ``http://myserver/myapp/router/objects/L123``. Multiple route classes can be registered for a model class and the request path after the object path part is matched against registered routes. If there is a matching route, that route is invoked to perform processing. Dispatching routes allow to route requests to Java methods and/or EOperations using annotations and reflection.
+* Each CDO object has a URL, something like ``http://myserver/myapp/router/objects/L123``, containment-path URL's are also supported. Multiple route classes can be registered for a model class and the request path after the object path part is matched against registered routes. If there is a matching route, that route is invoked to perform processing. Dispatching routes allow to route requests to Java methods and/or EOperations using annotations and reflection.
 * Contextual execution - for each request the routing servlet opens a transaction and "merges" HTTP request context and CDO transaction request context.
 * A number of annotations are provided to declaratively match processing methods to request values, check authorization, apply repository locks and bind values to arguments of request processing methods/EOperations, e.g. request header value or OSGi service.
 * Object/feature/operation level access control can be implemented declaratively in the model or programmatically. It also can be checked declaratively using method annotations or programmatically. In the latter case the application may modify its behavior based on principal/subject entitlements.
@@ -146,7 +146,7 @@ Sections below outline several tools and approaches which help to simplify the t
 There are multiple ways to generate code. For example, Eclipse resources API to work with projects, files, and folders; JDT API to work with packages and compilation units; JMerger to automatically merge generated and hand-crafted code, different template engines, ...
 
 [Nasdanika Codegen](https://github.com/Nasdanika/codegen) provides a model which abstracts multiple generation approaches. 
-It also provides a model editor and abstract classes for creating code generation wizards.
+It also provides a model editor and abstract classes for creating wizards and multi-form editors to collect input from users to be used as input for the generation models.
 Users of the model and the editor operate with the concepts of Eclipse IDE - projects, folders, files, packages, classes, interfaces, methods, etc. instead of disparate low-level API's to generate those. 
 
 Using the generator model editor experts in a particular technology, say Spring Boot, can create generator models in a visual way and without having to deal with low-level generation API's. 
