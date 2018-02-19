@@ -137,7 +137,9 @@ As with multiplication and addition there is a break-even point - e.g. if the tr
 applied many times over, it may make sense to do it manually once, then parameterize, templatize and automate.
 
 In my experience, transformations/templates tend to become too complex and difficult to understand pretty quickly. 
-Sections below outline several tools and approaches which help to simplify the transformation/code generation process and keep it clear and understandable.         
+Sections below outline several tools and approaches which help to simplify the transformation/code generation process and keep it clear and understandable.    
+
+Code generation might be a key enabler for a successful adoption of architecture by making it easier to follow the architecture by generating code from “reference implementation” models with collecting variation points from users and pulling data from external systems, than to deviating from it by manual coding.
 
 ### Nasdanika Codegen
 

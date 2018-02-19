@@ -1,4 +1,4 @@
 {
-    "plugins": [ "anchors" ],
+    "plugins": [ "anchors", "puml" ],
     "pluginsConfig": {}
 }
