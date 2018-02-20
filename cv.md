@@ -12,7 +12,7 @@ GitHub: https://github.com/pvlasov
 
 * Java.
 * [Model-Driven Development and Code Generation](model-driven-development/README.md).
-* Cloud technologies - Spring Boot, Pivotal Cloud Foundry, AWS, Docker, ...
+* Cloud technologies - Spring Boot, Pivotal Cloud Foundry, AWS, Docker.
 * Integration.
 
 ## Experience
@@ -39,7 +39,7 @@ Novosibirsk State University - Master of Science in Plasma Physics - 1988 to 199
 ## Ideal position
 
 A lead of a team of highly skilled and motivated professionals focusing on closing gaps in internal automation
-through creation of organization-specific Eclipse plug-ins, intranet web applications and other tools leveraging model-driven development and code generation. 
+through creation of organization-specific Eclipse plug-ins, intranet web applications and other tools leveraging [model-driven development and code generation](model-driven-development/README.md). 
 
 Throughout my career I've seen many times over gaps in internal automation which, if closed, would bring significant benefits to the organization. Some organizations recognize
 such gaps and proactively close them, while others just talk about them. The problem with the latter kind of organizations is that their problems cannot be efficiently addressed by the tools/solutions
@@ -47,7 +47,7 @@ available in the industry because the problems are specific to the organization.
 by the teams which face them because they don't have skills or time to address the problem. In other words, they are so busy hauling buckets of water that they don't have time/skills to build a pipeline.
 They might as well be unaware of existing tools/technologies which can help solving their problems because these tools/technologies are not their area of expertise.
 Another reason preventing such internal automation might be economies of scale where multiple teams are doing very similar things which can be automated, but even if team members have skills and time 
-it doesn't make sense for them to automate something because the cost of automation is more than the benefit. At the same time at the organization level such automation would help multiple teams and result in significant saves.
+it doesn't make sense for them to automate something because the cost of automation is more than the benefit. At the same time solving a repeating problem at the organization level would help multiple teams and result in significant saves.
 
 Examples:
 
