@@ -20,6 +20,7 @@ The components owned by the team are organized into four "pillars":
         * Microservice configuration files.
         * Maven dependencies.
         * Cloud Foundry applications and instances.
+    * Microservice configuration editor - a [Master-detail EMF editor](https://github.com/Nasdanika/presentation#master-detail-form-and-viewer) with a custom ResourceFactory and Resource implementations which transparently parsed YAML configuration file into a service configuration model and saved the model into a YAML file.    
     * Model-driven development and code generation in general as the foundation for the above items.
     * Eclipse IDE packages with pre-installed plug-ins.
     * Docker machine and image registry which contains images with pre-installed cloud components such as config server and Eureka to simplify local development and testing.       
