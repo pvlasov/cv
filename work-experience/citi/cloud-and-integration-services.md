@@ -31,7 +31,11 @@ The sites feature component overview, Java API documentation, roadmap and change
 Microservice sites also feature generated REST API documentation.
 
 We've also created and deployed a Maven team site for the team which lists components grouped in categories (pillars) and sub-categories. Component listings provide links to the component sites. 
-All the sites have the same style. The breadcrumbs of the team site and the component sites provide a uniform experience of main site/child site.   
+All the sites have the same style. The breadcrumbs of the team site and the component sites provide a uniform experience of main site/child site.
+
+The primary target audience of the component/team sites are developers and architects who use our components. The component/team sites have releases tied to sprints. 
+
+In addition to the component and team sites we've set up a team wiki where we capture and refine team processes, e.g. the component site publishing process. The team wiki's target audience is the team, although some other teams have started following our processes as well. The wiki evolves continuously.  
 
 In this role I wear two hats - the product owner and a dev lead of the Productivity pillar. I work with the team "customers" to understand their needs. 
 From that I build roadmaps which then get elaborated into features and stories in the team backlog. Before a start of a new sprint stories are prioritized and assigned to the team members with capacity and skillset in mind. 

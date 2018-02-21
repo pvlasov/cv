@@ -4,7 +4,7 @@
 
 E-Mail: ``pavel@vlasov.us``
 
-Linked-In Profile: www.linkedin.com/in/pavelvlasov
+Linked-In Profile: https://www.linkedin.com/in/pavelvlasov
 
 GitHub: https://github.com/pvlasov
 

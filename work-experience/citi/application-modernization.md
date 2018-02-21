@@ -34,4 +34,6 @@ The plug-in used the loader module and [Eclipse JDT](https://www.eclipse.org/jdt
 
 The plug-in was implemented as a multi-form editor with one page/form presenting a source checkbox tree allowing the user to select entry points. Other pages/forms collected additional extraction parameters. 
 Module extraction configuration was stored in JSON with transparent loading to an EMF model and saving the EMF model to JSON. The editor used [EMF Data Bindings](http://www.vogella.com/tutorials/EclipseDataBindingEMF/article.html) with TransactionalEditingDomain to support Undo/Redo of complex model manipulations.
+
+We've set up a team wiki where we documented our work and also collected "how-to's" for different technologies which we used - JDT, JFace Data Bindings, EMF, ... 
         

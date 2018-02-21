@@ -2,6 +2,7 @@
 
 **Work in Progress**
 
+TODO - Wiki.
 
 ### Tag Management Solution Selection
 Participated in a tag management solution selection effort. Evaluated several leading tag management solutions. Created a test harness for comparing difference in web pages performance before and after deployment of the tag management solution. The harness used Selenium Web Driver to load pages in different browsers, [[https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html|Navigation Timing API]] to collect page load timings, and an OSGi/Equinox container with CDO/H2 model repository to store collected data, and Jetty to display stats (min, max, avg, deviation) and charts (using [[http://www.flotcharts.org/|Flot]]).
