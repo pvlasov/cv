@@ -8,7 +8,7 @@ Linked-In Profile: www.linkedin.com/in/pavelvlasov
 
 ## Strengths
 
-* [Model-Driven Development and Code Generation](model-driven-development/README.md).
+* [Model-Driven Development and Code Generation](https://www.nasdanika.org/products/site/articles/mdd.html).
 * Java.
 * ... TODO - Integration, cloud, ...
 
