@@ -2,11 +2,11 @@
 
 <table>
 	<tr>
-		<td rowspan=5>![photo](pavel-vlasov.jpg)</td>
-		<td>E-Mail: ``pavel@vlasov.us``</td>
+		<td rowspan=5><img src="pavel-vlasov.jpg">/</img></td>
+		<td>E-Mail: <a href='ma&#105;lto&#58;pavel&#64;v&#37;6Ca&#115;o%76%2&#69;us'>p&#97;vel&#64;v&#108;a&#115;ov&#46;&#117;s</a></td>
 	</tr>
 	<tr>
-		<td>[Linked-In Profile](https://www.linkedin.com/in/pavelvlasov)</td>
+		<td><a href="https://www.linkedin.com/in/pavelvlasov">[Linked-In Profile](</a></td>
 	</tr>
 	<tr>
 		<td>[GitHub](https://github.com/pvlasov)</td>
@@ -77,15 +77,21 @@ Examples:
 
 ## Certifications
 
-TODO
+* [AWS Certified Solutions Architect - Associate](https://www.credly.com/badges/bbfc0c20-d5ff-4df8-bc0f-f7fd52bba347)
+* J2EE Architect - Sun Microsystems
+* Java Developer - Sun Microsystems
+* Java Programmer - Sun Microsystems
+* TIBCO Trained Professional
 
 ## Publications
 
 TODO - articles in JavaWorld, online book (work in progress)
 
-## Patent Applications
+## Patents
 
-TODO
+* Methods and systems for deploying computer source code
+    * [Patent 1](https://patents.google.com/patent/US20050044531)
+    * [Patent 2](https://patents.google.com/patent/US20050015762A1)
 
 ----
 # Pavel Vlasov 
