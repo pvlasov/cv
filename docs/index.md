@@ -127,7 +127,7 @@ Linked-In Profile: www.linkedin.com/in/pavelvlasov
 
 ## Education 
 
-Novosibirsk State University - Master of Science in Plasma Physics - 1988 to 1993
+[Novosibirsk State University](https://en.wikipedia.org/wiki/Novosibirsk_State_University) - Master of Science in Plasma Physics - 1988 to 1993
 
 ## Certifications
 
