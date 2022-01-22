@@ -36,13 +36,12 @@ Over 28 years of experience in Information Technology with 25 of them in the Fin
 
 ## Experience
 
-### Citi Global Consumer Group
+### Citi Global Consumer Group: Senior Vice President, 2005 - Present
 
 During my time at Citi Global Consumer group I worked in different parts of the CTO organization.
 
 #### Engineering & Architecture
 
-_Senior Vice President, 2005 - Present_
 
 TODO
 
@@ -170,7 +169,7 @@ We've set up a team wiki where we documented our work and also collected "how-to
 
 #### Research & Development
 
-* **Tag Management Solution Selection** - Participated in a tag management solution selection effort. Evaluated several leading tag management solutions. Created a test harness for comparing difference in web pages performance before and after deployment of the tag management solution. The harness used Selenium Web Driver to load pages in different browsers, [[https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html|Navigation Timing API]] to collect page load timings, and an OSGi/Equinox container with CDO/H2 model repository to store collected data, and Jetty to display stats (min, max, avg, deviation) and charts (using [[http://www.flotcharts.org/|Flot]]).
+* **Tag Management Solution Selection** - Participated in a tag management solution selection effort. Evaluated several leading tag management solutions. Created a test harness for comparing difference in web pages performance before and after deployment of the tag management solution. The harness used Selenium Web Driver to load pages in different browsers, [Navigation Timing API](https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html) to collect page load timings, and an OSGi/Equinox container with CDO/H2 model repository to store collected data, and Jetty to display stats (min, max, avg, deviation) and charts using [Flot](http://www.flotcharts.org/).
 
 * **Functional/Acceptance Testing Automation** 
     * Web applications
@@ -186,16 +185,16 @@ We've set up a team wiki where we documented our work and also collected "how-to
 * **JavaScript API's** - demonstrated how banking domain model can be exposed as JavaScript API in accordance with Web-Oriented Architecture principles. JavaScript was generated from a model because hand-crafting would be labor-intensive and error-prone. The model was created in [Eclipse Modeling Framework (EMF)](https://www.eclipse.org/modeling/emf/) and populated either by importing XML schemas or manually using an EMF-generated editor. Generated JavaScript was used either in the browser or on [Node.js](http://nodejs.org/) and could retrieve server/back-end data in XML and JSON formats over HTTP and [WebSocket](https://en.wikipedia.org/wiki/WebSocket). Measured and compared network traffic using the new approach vs. current, which showed significant reduction. An overview of principles and technologies:
     * The API was organized into namespaces containing classes which in turn contained attributes and functions.
     * Multiple inheritance.
-    * The model supported templates in [[http://olado.github.io/doT/index.html|doT.js]] which were compiled to JavaScript at generation time.
+    * The model supported templates in [doT.js](http://olado.github.io/doT/index.html) which were compiled to JavaScript at generation time.
     * Templates could be parameterized or parameterless. Parameterless templates were generated as read-only properties, e.g. ''Customer.home'' would render customer home page. Parameterized templates were generated as functions.
     * Multi-resource (multi-file) models, e.g. global/core class definitions in one model resource or a set of resources and LOB/region specific definition another.
     * Lazy (on-demand) loading of classes, data (attributes), and functions/templates. 
     * Attributes were mapped to service calls. Once service call could retrieve multiple attributes and one attribute could be retrieved by multiple services. Conceptually services were overlapping fetch groups. 
     * Attributes could have validations associated with them.
-    * Classes were loaded on demand in the browser with [[http://requirejs.org/|RequireJS]].
+    * Classes were loaded on demand in the browser with [RequireJS](http://requirejs.org/).
     * Functions/templates could be marked to be loaded on demand in the model - this feature was useful for network traffic optimization in case of large infrequently used templates.
     * Getters/setters were used to abstract API users from on-demand loading/partial population.
-    * Synchronous and asynchronous modes - same API with asynchronous mode loading returning [[https://github.com/kriskowal/q|Q]] promises instead of data values.
+    * Synchronous and asynchronous modes - same API with asynchronous mode loading returning [Q](https://github.com/kriskowal/q) promises instead of data values.
     * Syntax highlighting editors for functions, services and templates code.
     * [Backbone.js](http://backbonejs.org/)-based single-page application.
     * A thin messaging layer over WebSocket emulating JMS request/reply API.
@@ -238,17 +237,13 @@ Static analysis of custom artifacts - tibco, Chordiant flows
 
 Generation of mainframe client library 
 
-### iGate Global Solutions
-
-_Technical Architect, 2000 - 2005_
+### iGate Global Solutions: Technical Architect, 2000 - 2005
 
 * Integrated automated code review system with the automated build process. This solution enabled automated quality checks of source code delivered by offshore contractors.
 * Implemented automated build application and process, resulting in 2 U.S. patents and generating savings through a personnel reduction , fewer production outages and shorter release cycle. 
 * Implemented a number of middleware components.  
 
-### Bank of Moscow
-
-_Head of IT Department, 1999 - 2000_
+### Bank of Moscow: Head of IT Department, 1999 - 2000
 
 Managed 4 IT professionals who supported the branch’s computer park (70 desktops and 4 servers), network and telecommunications. Supported/administered hosted applications and developed custom applications and modules. 
 
@@ -258,18 +253,14 @@ Managed 4 IT professionals who supported the branch’s computer park (70 deskto
   * Managed Y2K compliance and certification.
   * Implemented bank’s mail system with Microsoft Exchange server and Microsoft Outlook and connected system with the central office Exchange Network to improve communications and saving on phone calls.
 
-### Incombank
-
-_Senior Specialist, 1996 - 1999_
+### Incombank: Senior Specialist, 1996 - 1999
 
 Managed telecommunications, electronic fund transfer systems and development of branch-specific software. 
   * Developed a number of automated solutions to reduce payment handling time and processing cost, and increase robustness of payment processing. 
   * Implemented a business intelligence solution that helped marketing department to concentrate efforts on acquiring most significant clients.  
   * Participated in implementation of the first payment card system in Khabarovsk (Golden Crown)
 
-### Procyon
-
-_Software Developer, 1993 - 1995_
+### Procyon: Software Developer, 1993 - 1995
 
 FoxPro 2.6 development.
 
