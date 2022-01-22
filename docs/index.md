@@ -2,20 +2,20 @@
 
 <table>
 	<tr>
-		<td rowspan=5><img src="pavel-vlasov.jpg">/</img></td>
+		<td rowspan=5><img src="pavel-vlasov.jpg"/></td>
 		<td>E-Mail: <a href='ma&#105;lto&#58;pavel&#64;v&#37;6Ca&#115;o%76%2&#69;us'>p&#97;vel&#64;v&#108;a&#115;ov&#46;&#117;s</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.linkedin.com/in/pavelvlasov">[Linked-In Profile](</a></td>
+		<td><a href="https://www.linkedin.com/in/pavelvlasov">Linked-In Profile</a></td>
 	</tr>
 	<tr>
-		<td>[GitHub](https://github.com/pvlasov)</td>
+		<td><a href="https://github.com/pvlasov">GitHub</a></td>
 	</tr>
 	<tr>
-		<td>[Nasdanika](https://nasdanika.org)</td>
+		<td>Web site: <a href="https://nasdanika.org">Nasdanika</a></td>
 	</tr>
 	<tr>
-		<td>[Source](https://github.com/pvlasov/cv/blob/master/docs/index.md)</td>
+		<td><a href="https://github.com/pvlasov/cv/blob/master/docs/index.md">Source</a></td>
 	</tr>
 </table>		
 	
