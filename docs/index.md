@@ -1,12 +1,25 @@
 # Pavel Vlasov
 
-![photo](pavel-vlasov.jpg)
-
-* E-Mail: ``pavel@vlasov.us``
-* [Linked-In Profile](https://www.linkedin.com/in/pavelvlasov)
-* [GitHub](https://github.com/pvlasov)
-* [Nasdanika](https://nasdanika.org)
-* [Source](https://github.com/pvlasov/cv/blob/master/docs/index.md)
+<table>
+	<tr>
+		<td rowspan=5>![photo](pavel-vlasov.jpg)</td>
+		<td>E-Mail: ``pavel@vlasov.us``</td>
+	</tr>
+	<tr>
+		<td>[Linked-In Profile](https://www.linkedin.com/in/pavelvlasov)</td>
+	</tr>
+	<tr>
+		<td>[GitHub](https://github.com/pvlasov)</td>
+	</tr>
+	<tr>
+		<td>[Nasdanika](https://nasdanika.org)</td>
+	</tr>
+	<tr>
+		<td>[Source](https://github.com/pvlasov/cv/blob/master/docs/index.md)</td>
+	</tr>
+</table>		
+	
+Summary here...	
 
 * TOC
 {:toc}
