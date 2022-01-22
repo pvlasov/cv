@@ -2,17 +2,12 @@
 
 ![photo](pavel-vlasov.jpg)
 
-purum
+* E-Mail: ``pavel@vlasov.us``
+* [Linked-In Profile](https://www.linkedin.com/in/pavelvlasov)
+* [GitHub](https://github.com/pvlasov)
+* [Nasdanika](https://nasdanika.org)
 
-# Pavel Vlasov 
-
-![picture](pavel-vlasov.jpg)
-
-E-Mail: ``pavel@vlasov.us``
-
-Linked-In Profile: https://www.linkedin.com/in/pavelvlasov
-
-GitHub: https://github.com/pvlasov
+[TOC levels=6]
 
 ## Strengths
 
@@ -142,3 +137,16 @@ Summary
 * Open source contributions
     * [Nasdanika](open-source/nasdanika/README.md)
     * [Hammurapi](open-source/hammurapi/README.md)  
+   
+   
+<html>   
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1584WH6CVM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1584WH6CVM');
+</script>    
+    
+</html>    
