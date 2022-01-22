@@ -6,8 +6,11 @@
 * [Linked-In Profile](https://www.linkedin.com/in/pavelvlasov)
 * [GitHub](https://github.com/pvlasov)
 * [Nasdanika](https://nasdanika.org)
+* [Source](https://github.com/pvlasov/cv/blob/master/docs/index.md)
 
-[TOC levels=6]
+* TOC
+{:toc}
+
 
 ## Strengths
 
