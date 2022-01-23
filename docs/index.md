@@ -36,14 +36,18 @@ Over 28 years of experience in Information Technology with 25 of them in the Fin
 
 ## Experience
 
-### Citi Global Consumer Group: Senior Vice President, 2005 - Present
+### Citi Global Consumer Group
+
+_Senior Vice President, 2005 - Present_
 
 During my time at Citi Global Consumer group I worked in different parts of the CTO organization.
 
 #### Engineering & Architecture
 
 
-TODO
+TODO 
+
+Chief Architect Dev experience
 
 Journey Engineering
 
@@ -125,6 +129,8 @@ The team wiki's target audience was the team, although some other teams have sta
 
 In this role I wore two hats - a product owner and a dev lead of the Productivity pillar. Worked with the team "customers" to understand their needs and built roadmaps which then were elaborated into features and stories in the team backlog.
 Before a start of a new sprint stories were prioritized and assigned to the team members with capacity and skillset in mind. 
+
+In addition to the team wiki I've also established and maintained a wiki for the architecture organization where multiple teams contributed.
 
 #### Application Modernization
 
@@ -212,6 +218,7 @@ We've set up a team wiki where we documented our work and also collected "how-to
 * **TIBCO BPM POC** - Participated in a POC which leveraged TIBCO BPM. Installed and configured BPM server and prerequisites (LDAP, Oracle) into a cloud virtual machine. Created a process which interacted with [TIBCO BW](http://www.tibco.com/products/automation/application-integration/activematrix-businessworks) services. Knowledge transfer and coaching of the development team.
 * **R&D infrastructure** - Set up and maintained infrastructure for the R&D team which consisted of virtual machines, high capacity workstation for storing large binary artifacts including video tutorials, a Wiki site, and some other applications.
 * **Distributed Cache Evaluation** - Participated in a distributed cache evaluation, wrote a test harness and tests which we used to compare different distributed caching solutions. The harness and tests served the role of a [Technology Compatibility Kit](https://en.wikipedia.org/wiki/Technology_Compatibility_Kit).
+* **Cloud console** - a web application which used REST API's to retrieve information about different objects in the private cloud and generate recommendation using custom rules, e.g. reduce or increase memory or CPU.
 
 #### Shared Technology Services
 
@@ -219,31 +226,44 @@ Focused on integration components using [JMS](https://www.oracle.com/java/techno
 
 #### Sawgrass Integration Architect
 
-TODO
+Sawgrass is a Citi Cards call center application.
+I was responsible for the architecture of the middleware components which included:
 
-Sawgrass Integration Architect.
+* WebSphere J2EE resource adapter sending and receiving messages to ESB. The connector functionality included:
+    * Marshalling/unmarshalling between XML and a Java Object Model 
+    * Caching
+    * JMS connection pooling, load balancing, liveness checks and recovery
+* Tibco BW layer
+* Mainframe communication component. The component functionality included translation between XML and a binary format, caching with complex invalidation policies, querying of mainframe responses to return a smaller data set. Querying included pagination support.
+* XML-Binary codec library generated from XML files which in turn were generated from mainframe metadata. 
+ 
+ In parallel with the primary responsibilities I also participated in the following efforts:
+ 
+ * Telephony integration applet.
+ * Established an automated code review process for Java code with custom inspectors (validation rules) performing deep analysis of code such as navigating call trees. The inspectors were specific to the application framework we used.
+ * Implemented automated quality inspection of Tibco BW and Chordiant flows.
+ * Implemented an SOA utility performing custom WSDL validation, cleanup and transformations.
+ * Implemented a resilient JMS driver for fault tolerance.
 
-  * Integration Architect - ESB, back-end connectivity, caching. TIBCO BW, TIBCO Adapter SDK, TIBCO EMS, J2EE Resource adapters, Berkeley DB, IBM MQ, resilient JMS driver for fault tolerance.
-  * Telephony integration.
-  * Code quality - custom Java inspectors, automated quality inspection for TIBCO BW and Chordiant flows.
-  * SOA Utility - WSDL validations, cleanup and transformations.
+Technologies used: 
 
-  Cloud console - configuration and advisory
+* Tibco EMS
+* Tibco BW
+* J2EE Resource adapters
+* Berkeley DB
+* IBM MQ
 
-Code generators
+### iGate Global Solutions
 
-
-Static analysis of custom artifacts - tibco, Chordiant flows
-
-Generation of mainframe client library 
-
-### iGate Global Solutions: Technical Architect, 2000 - 2005
+_Technical Architect, 2000 - 2005_
 
 * Integrated automated code review system with the automated build process. This solution enabled automated quality checks of source code delivered by offshore contractors.
 * Implemented automated build application and process, resulting in 2 U.S. patents and generating savings through a personnel reduction , fewer production outages and shorter release cycle. 
 * Implemented a number of middleware components.  
 
-### Bank of Moscow: Head of IT Department, 1999 - 2000
+### Bank of Moscow
+
+_Head of IT Department, 1999 - 2000_
 
 Managed 4 IT professionals who supported the branch’s computer park (70 desktops and 4 servers), network and telecommunications. Supported/administered hosted applications and developed custom applications and modules. 
 
@@ -253,20 +273,24 @@ Managed 4 IT professionals who supported the branch’s computer park (70 deskto
   * Managed Y2K compliance and certification.
   * Implemented bank’s mail system with Microsoft Exchange server and Microsoft Outlook and connected system with the central office Exchange Network to improve communications and saving on phone calls.
 
-### Incombank: Senior Specialist, 1996 - 1999
+### Incombank
+
+_Senior Specialist, 1996 - 1999_
 
 Managed telecommunications, electronic fund transfer systems and development of branch-specific software. 
   * Developed a number of automated solutions to reduce payment handling time and processing cost, and increase robustness of payment processing. 
   * Implemented a business intelligence solution that helped marketing department to concentrate efforts on acquiring most significant clients.  
   * Participated in implementation of the first payment card system in Khabarovsk (Golden Crown)
 
-### Procyon: Software Developer, 1993 - 1995
+### Procyon
+
+_Software Developer, 1993 - 1995_
 
 FoxPro 2.6 development.
 
 ## Education 
 
-[Novosibirsk State University](https://en.wikipedia.org/wiki/Novosibirsk_State_University) - Master of Science in Plasma Physics,  1988 to 1993
+[Novosibirsk State University](https://en.wikipedia.org/wiki/Novosibirsk_State_University) - Master of Science in [Plasma Physics](https://research.nsu.ru/en/organisations/%D0%BA%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0-%D1%84%D0%B8%D0%B7%D0%B8%D0%BA%D0%B8-%D0%BF%D0%BB%D0%B0%D0%B7%D0%BC%D1%8B-%D1%84%D1%84),  1988 - 1993
 
 ## Certifications
 
