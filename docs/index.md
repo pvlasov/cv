@@ -68,9 +68,9 @@ We've also documented OpenShift new solution journey using the above capability.
 
 Our Developer Experience portfolio also includes the following items:
 
-* Documentation as code - a practice for documenting artifacts stored in source repositories, e.g. Java libraries, with documentation sources stored in the same repository and documentation sites generated from those sources. The practice includes a capability of site federation - generation of a single site for multiple components from information retrieved from multiple source repositories. A prototype portal hosting documentation of 60+ components in 10+ domains was created by applying the practice. The practice allows to create self-contained projects with everything stored in a source repository including roadmap items, issue categories such as "Good first issue", persona definitions, and discussion forums. It allows to use a unified approach to community engagement - create a pull request. It is conducive to innovation as it allows to create an elaborated idea "as code" and then collaborate on it.
-* Code generation - a practice for creating code generators using declarative YAML models and templates derived from reference implementations.
-* Eclipse ecosystem - eclipse packages, eclipse plug-ins and update sites. Ability to build Citi-specific Eclpse packages, install approved third-party plug-ins and to build Citi-specific plug-ins including DX journey documentation plug-ins to bring DX to developers' fingertips.
+* **Documentation as code** - a practice for documenting artifacts stored in source repositories, e.g. Java libraries, with documentation sources stored in the same repository and documentation sites generated from those sources. The practice includes a capability of site federation - generation of a single site for multiple components from information retrieved from multiple source repositories. A prototype portal hosting documentation of 60+ components in 10+ domains was created by applying the practice. The practice allows to create self-contained projects with everything stored in a source repository including roadmap items, issue categories such as "Good first issue", persona definitions, and discussion forums. It allows to use a unified approach to community engagement - create a pull request. It is conducive to innovation as it allows to create an elaborated idea "as code" and then collaborate on it.
+* **Code generation** - a practice for creating code generators using declarative YAML models and templates derived from reference implementations.
+* **Eclipse ecosystem** - eclipse packages, eclipse plug-ins and update sites. Ability to build Citi-specific Eclpse packages, install approved third-party plug-ins and to build Citi-specific plug-ins including DX journey documentation plug-ins to bring DX to developers' fingertips.
 
 Some of the above capabilities are already available for consumption while others were prototyped and await productization.
 
@@ -304,6 +304,8 @@ FoxPro 2.6 development.
 * Methods and systems for deploying computer source code
     * [Patent 1](https://patents.google.com/patent/US20050044531)
     * [Patent 2](https://patents.google.com/patent/US20050015762A1)
+
+---
 
    
    
