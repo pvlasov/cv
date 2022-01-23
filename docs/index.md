@@ -44,47 +44,46 @@ During my time at Citi Global Consumer group I worked in different parts of the 
 
 #### Engineering & Architecture
 
+My current role is a **Chief Architect of Developer Experience** with immediate focus on improving developer experience for Java developers on OpenShift.
 
-TODO 
+As part of larger Developer Experience efforts we've established a capability to develop and deliver a connected[^1], role-specific[^2], cross-referenced[^3], hyper-local[^4] visualized[^5] and interactive[^6] developer experience "as code"[^7] in a form of journeys[^8]. 
+We've also documented OpenShift new solution journey using the above capability.
 
-Chief Architect Dev experience
+[^1]: Journey activities are connected to each other with transitions and calls. Generated context visualizations previous and subsequent activities - "You are here", so to speak.
 
-Journey Engineering
+[^2]: Activities are performed by roles. Support of simple activity to role reference as well as RACI matrix.
 
-Journeys - Agile SDLC, OpenShift
+[^3]: Bi-directional references between activities, tools, roles and deliverables.
 
-Established a capability to develop and deliver a connected, role-specific (raci), cross-referenced, hyper-local visualized and interactive developer experience "as code" in a form of journeys.
+[^4]: Infinite nesting of activities allows to create highly focused activity documentation.
 
-A framework for defining journeys in YAML and generating documenation site with visualizations.
+[^5]: Generated state diagram visualizaitons with ability to manually edit generated visualizations and manually create visualizations from scratch. 
 
-Documentation as code - a practice for documenting artifacts stored in source repositories, e.g. Java libraries, with documentation sources stored in the same repository and documentation sites generated from those sources. Including site federation - a site for multiple components may....
+[^6]: Generated state diagrams have clickable activity shapes navigating to the clicked activity documentation.
 
-Code generation - a practice for creating code generators using declarative YAML models and templates derived from refrence implementations.
+[^7]: Journeys are defined with YAML and Markdown stored in a source control system. Documentation is generated with a Maven build.
 
-Linux Developer Desktop - ability to run OpenShift clusters on a developer workstation. Tight local loop.
-
-Code generation, documentation as code
-Eclipse ecosystem - eclipse packages, eclipse plug-ins and update sites. Ability to build Citi-specific Eclpse packages, install approved third-party plug-ins and to build Citi-specific plug-ins including DX journey documentation plug-ins to bring DX to developers' fingertips.
-
-Established a concept of the knowledge continuum - generic to specific.
-
-Inner source - accelerators/enables, body of knowledge, doc publishing, starter projects/sites. Self-contained - innovation. Link to inner source. good first issue. forums.
-linux developer desktop
-
-OpenShift New Solution journey - step-by-step instructions for creating a cloud application on OpenShift including onboarding of the application (cluster creation etc), developer, and application components.
-
-OpenSource Contribution DAG - journey definition
-
-Portal for Core Platform Services - 60+ components in 10+ domains. Jenkins pipeline.
-
-Doc automated publishing on push and tag creation
+[^8]: Journey is a directed graph of activities performed by roles using tools and consuming and producing deliverables. Journey is a subclass of activity and as such journeys can be infinitely nested.
 
 
-Footnote test[^1]
+Our Developer Experience portfolio also includes the following items:
 
-param-purum
+* Documentation as code - a practice for documenting artifacts stored in source repositories, e.g. Java libraries, with documentation sources stored in the same repository and documentation sites generated from those sources. The practice includes a capability of site federation - generation of a single site for multiple components from information retrieved from multiple source repositories. A prototype portal hosting documentation of 60+ components in 10+ domains was created by applying the practice. The practice allows to create self-contained projects with everything stored in a source repository including roadmap items, issue categories such as "Good first issue", persona definitions, and discussion forums. It allows to use a unified approach to community engagement - create a pull request. It is conducive to innovation as it allows to create an elaborated idea "as code" and then collaborate on it.
+* Code generation - a practice for creating code generators using declarative YAML models and templates derived from reference implementations.
+* Eclipse ecosystem - eclipse packages, eclipse plug-ins and update sites. Ability to build Citi-specific Eclpse packages, install approved third-party plug-ins and to build Citi-specific plug-ins including DX journey documentation plug-ins to bring DX to developers' fingertips.
 
-[^1]: zuzu-mumu.
+Some of the above capabilities are already available for consumption while others were prototyped and await productization.
+
+To prioritize our pipeline we use developer personas with goals and we align our efforts to persona goals.
+Developer personas and their goals are defined using a variety of techniques including analysis of survey results.
+
+As part of the Developer Experience efforts we've established a concept of the knowledge continuum similar to the [TOGAF Enterprise Continuum](https://pubs.opengroup.org/architecture/togaf9-doc/arch/chap35.html) with thir-party documentation being most generic, documentation for internal libraries and services being in the middle, and journey activity documentation being most to specific.
+
+
+I'm also participating in several company-wide efforts, e.g.
+
+* Defining a capability to run OpenShift clusters on developer workstations to provide a tight local development loop.
+* [InnerSource](https://en.wikipedia.org/wiki/Inner_source). As part of this effort I've created an intranet site hosting GCT InnerSource body of knowledge including Trusted Committer Get Started Guide. I've also created several starter projects for inner source components as well as documentation-as-code sites for existing components.
 
 #### Product owner of Citi Cloud Platform Integration Services domain.
 
