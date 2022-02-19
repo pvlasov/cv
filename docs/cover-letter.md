@@ -65,7 +65,7 @@ It is elaborationist because it supports model transformation pipelines - one mo
 
 There is an aphorism "All models are wrong, but some are useful". If we define usefulness as positive ROI and short time to market, then with this approach to modeling it is easier to create a useful model because production and publication of a model requires less effort than alternative approaches, e.g. no need in an initial investment into a model editor.
 
-![mbse](mbse.drawio.png] [^1]
+![mbse](mbse.drawio.png)[^1]
 
 [^1]: Created with [diagrams.net](https://www.diagrams.net/) desktop editor.
 
