@@ -38,9 +38,47 @@ This is not an academic paper and not a textbook, so you may have to use your ju
 
 ## MBSE
 
+MBSE stands for [Model-Based Systems Engineering](https://en.wikipedia.org/wiki/Model-based_systems_engineering).
+There are sophisticated MBSE tools such as [Capella](https://www.eclipse.org/capella/) for designing complex systems architecture. 
+
+The approach to MBSE explained here can be described as:
+
+* Pragmatic
+* Democratic
+* Elaborationist all the way to the runtime/end product
+
+It came to be based on the following observations:
+
+* When a group in an organization starts using a modeling tool while the rest of the organization doesn't use it then an [ivory tower](https://en.wikipedia.org/wiki/Ivory_tower) situation arises. Even if the underlying tooling is free there is a cost of learning.
+* Developers even with the access to a graphical tool often edit the underlying resources such as XMI directly in a text editor. 
+
+The approach is pragmatic because it is based on free open-source tooling and runtime and produces Maven jars which can be used in any Maven-based Java application, e.g. a micro-service.
+
+It is democratic because it can be made a public good in an organization and doesn't require extensive training:
+
+* If a person knows how right-click in the file explorer to create a new file they should be able to create meta-models.
+* If a person knows how to create a bulleted list in MS Word or PowerPoint, they should be able to create/populated models.
+* HTML documentation is generated from the models and published for everybody to see and understand - forming a "Ubiquitous language" of the organization.
+* Model jars are published to to a Maven repository for Java developers to use them in their applications.
+
+It is elaborationist because it supports model transformation pipelines - one model is transformed to another with adding details as needed until it gets transformed to a final consumable artifact, e.g. a static web site.
+
+There is an aphorism "All models are wrong, but some are useful". If we define usefulness as positive ROI and short time to market, then with this approach to modeling it is easier to create a useful model because production and publication of a model requires less effort than alternative approaches, e.g. no need in an initial investment into a model editor.
+
+![mbse](mbse.drawio.png][^1]
+
+[^1]: Created with [diagrams.net](https://www.diagrams.net/) desktop editor.
+
+
+Pragmatic and democratic
+
+Models cheaply 
+
 ...
 
-Transformation pipelines - flow > action > resource > files
+directly edit unerlying XMI
+
+Transformation pipelines - flow > action > resource > files (links - adm). Data provenance. page-template.xml
 
 elaborationist vs translationalist approach
 

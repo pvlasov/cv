@@ -2,7 +2,7 @@
 
 <table>
 	<tr>
-		<td rowspan=5><img src="pavel-vlasov.jpg"/></td>
+		<td rowspan=6><img src="pavel-vlasov.jpg"/></td>
 		<td>E-Mail: <a href='ma&#105;lto&#58;pavel&#64;v&#37;6Ca&#115;o%76%2&#69;us'>p&#97;vel&#64;v&#108;a&#115;ov&#46;&#117;s</a></td>
 	</tr>
 	<tr>
