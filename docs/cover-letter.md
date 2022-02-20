@@ -649,4 +649,22 @@ Examples of inefficiency:
 * People are late to open or join meetings, the group is waiting.
 * People do not respond to meeting invites - other people wait for them and then have to reschedule.
 
+## Collaborative Decision Making as Code
+
+* Use [MBSE](#mbse) to create a meta-model supporting [Multiple Criteria Decision Analysis](https://en.wikipedia.org/wiki/Multiple-criteria_decision_analysis) methodologies such as [Analytic Hierarchy Process](https://en.wikipedia.org/wiki/Analytic_hierarchy_process), [Weighted Product Model](https://en.wikipedia.org/wiki/Weighted_product_model), [Weighted Sum Model](https://en.wikipedia.org/wiki/Weighted_sum_model).
+* Decision models are populated by multiple stored in a version control system in a single repository or multiple repositories, e.g. to enforce access control.
+* Model aggregation can be done at the source level or "binary" level - models a published to a binary repository and then referenced by other models.
+* Decision documentation is generated from the models.
+* With multiple experts participating it is possible to have a hierarchy of experts following the criteria hierarchy and different weights for experts. E.g. a senior developer may have higher weight than a junior developer. 
+
+Value proposition:
+
+* Connected input collected from experts in different parts of the organization.
+* Transparency.
+* Ability to revisit a decision when circumstances change.
+* Ability to drill-down to details why a particular alternative was assigned a certain rank.  
+* Reuse - branch/fork, modify parts of the analysis. The model may also support inheritance and instead of branching and overwriting it would be extending and overriding.
+* Decision chaining/aggregation. 
+* With AHP it is possible to check for decision consistency at an individual expert level and cross-expert.
+
 ---
