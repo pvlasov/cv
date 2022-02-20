@@ -470,28 +470,101 @@ The below diagram shows how a CLI command suite can be implemented in a decouple
 * Provider jars contain commands implementing the service provider interface.
 * The assembly is a [fat jar](http://tutorials.jenkov.com/maven/maven-build-fat-jar.html) with provider dependencies in ``pom.xml``.  
 
-
 ### Documentation as code
 
-Both solution instantiation and knowledge delivery mechanism
+Documentation as code is not a new concept - it is widely used to generate documentation sites, 
+e.g. many Apache products including [Maven](https://maven.apache.org/index.html) use [Maven sites](https://maven.apache.org/plugins/maven-site-plugin/) generated documentation.
 
-Aggregation vs federation?
+This section provides an overview of serveral documentation as code solutions which provide more advanced functionality than Maven sites.
+
+Please note that documentation as code is an example of both solution instantiation (generated) and delivery mechanism (delivers knowledge).
 
 #### Application model
 
-#### Journey model
+The [application model](https://docs.nasdanika.org/modules/html/modules/models/modules/app/modules/model/index.html) allows to define a hierarchy of [actions](https://docs.nasdanika.org/modules/html/modules/models/modules/app/modules/model/Action.html) from which a web site or other type of documentation can be generated.
+The action model is conceptually similar to Maven's ``site.xml``, but provides more functionality such as navigation actions, sections, drop-downs, tabs, etc.
+Action models can be defined in YAML or XML and can reference markdown and other resources locally, retrieved from remove locations, or generated.
+
+Some feature of the action model approach:
+
+* [20+ Bootstwatch themes](https://bootswatch.com/4/)
+* Generation of a JavaScript-based built-in search scoped to a site. No need to host a search engine. [Example](https://docs.nasdanika.org/search.html).
+* Diagrams generated from fenced UML blocks. [More info](https://docs.nasdanika.org/modules/core/modules/exec/modules/model/content/Markdown.html#embedded-diagrams).
+* Dynamic behavior with either Single Page Applications, or by serving the action model on a per-page basis from a dynamic app such as SpringBoot web app. These two approaches can be combined. The search above is an example of a Single Page Application. Another example: [All issues](https://docs.nasdanika.org/all-issues.html) - filterable and configurable table.
+* Aggregation of several models into a single site.
+
+The action documentation is an example of a site page generated from the application model.
+
+Application models can be used to create sites without a specific backing structure.
+They can also be used to create a high-level action structure with lower-level action hierarchies "mounted" at specific locations.
+
+Journey and Engineering models explained below are first converted to application models and then those action models are used to generate web sites.
+
+#### Flow model
+
+[Flow models](https://docs.nasdanika.org/modules/core/modules/flow/index.html) allow to define how to achieve
+outcomes by performing a graph of [activities](https://docs.nasdanika.org/modules/core/modules/flow/Activity.html) by [participants](https://docs.nasdanika.org/modules/core/modules/flow/Participant.html) using [resources](https://docs.nasdanika.org/modules/core/modules/flow/Resource.html) and consuming and producing [artifacts](https://docs.nasdanika.org/modules/core/modules/flow/Artifact.html). 
+
+Example: [TOGAF ADM Flow](https://docs.nasdanika.org/togaf/adm/activities/adm/index.html) (partial).
 
 #### Engineering model
 
+[Engineering models](https://docs.nasdanika.org/modules/engineering/modules/model/index.html) provide structure to describe "bringing something about" - [organizations](https://docs.nasdanika.org/modules/engineering/modules/model/Organization.html) with [engineers](https://docs.nasdanika.org/modules/engineering/modules/model/Engineer.html) building [products](https://docs.nasdanika.org/modules/engineering/modules/model/Product.html) by working on [issues](https://docs.nasdanika.org/modules/engineering/modules/model/Issue.html). 
+
+Engineering models can be used for documenting software components (and other things) where it is important not only to communicate what a component/product does, but also:
+
+* Why it does it this way - alignments to [persona](Persona.html) [goals](Goal.html), [objectives](Objective.html), and [principles](Principle.html).
+* Planned functionality (roadmaps) - [releases](https://docs.nasdanika.org/modules/engineering/modules/model/Release.html) planned for [increments](https://docs.nasdanika.org/modules/engineering/modules/model/Increment.html)
+
+Some potential uses of engineering models:
+
+* Documentation portals for internal shared/reusable components
+* Solutions built InnerSource approach
+* Ideation/Innovation - see the innovation pipeline below.
+
+[Example of a site generated from an engineering model](https://docs.nasdanika.org/index.html).
+
+## Innovation pipeline
+
+A large organization typically has a large number of improvement opportunities and a large number of innovation ideas generated. 
+These opportunities and ideas come in different shapes and sizes and it is important to have a capability to
+capture them, prioritize and execute leveraging available resources in an optimal way.
+
+This section provides some suggestions regarding how it can be down in a relatively low-tech way.
+The process is inspired in part by the [Eclipse Foundation Development Process](https://www.eclipse.org/projects/dev_process/).
+
+The innovation framework can be documented using the flow model, so the entire organization has a clear understanding of the innovation process.
+
+Ideas can be captured using the engineering model possibly in combination with flow models to capture customer journeys:
+
+* Document WHO would be using/benefiting from the idea - personas and their goals. With a well-established innovation pipeline shared persona definitions can be used at this stage. Published shared persona/goals definitions may inspire ideas how to address them.
+* Document WHAT is offered - products and features and WHY - align to persona goals.
+* Document HOW - elaborate features into issues.
+* Document WHEN - group features and issue into releases.
+ 
+The idea does not have to be captured in its entirety before submission.
+E.g. it may contain just a vision from which other elements will be elicited at later stages.
+
+An idea definition can be stored in a version control repository.
+E.g. a personal repository of the initial author of the idea.
+Once the initial definition is stored in a version control the author submits a request to publish their idea to 
+an idea portal so it can be discovered and reviewed by others. 
+The portal can also be build using the engineering model. 
+
+The innovation community reviews the submitted idea and may provide feedback. 
+Some community member may collaborate with the idea author to elaborate the idea further in an InnerSource fashion.
+
+If the idea requires funding or other form of leadership engagement the idea community may submit a request
+for funding/sponsorship.
+The request would be reviewed by a governing body, say "Innovation Steering Committee" which would decide the course of actions.
+Another possibility is to support ideas with most active communities.
+
+With this approach each innovation voice can be heard. 
+It will also drive collaboration across teams within the organization.
 
 ## Organization engineering
 
 Analogy with software system - kubernetes cluster. Disclaimer people/computers.
-
-## Innovation pipeline
-
-Engineering, aggregation. 
-Innovation framework - tailored TOGAF?
 
 Challenge/solution - generic, concrete.
 
