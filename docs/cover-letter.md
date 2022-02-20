@@ -564,6 +564,96 @@ It will also drive collaboration across teams within the organization.
 
 ## Organization engineering
 
+Organization engineering means improving organization efficiency by observing its behavior 
+and implementing incremental changes.
+
+The overall approach is to:
+
+* Build a model of an organization with multiple contributing sources:
+    * Manual input stored in a version control system including:
+        * Descriptions of organizations/teams and their members 
+        * Principles
+        * Goals
+        * Strategic Objectives 
+    * Pull data from multiple systems such as:
+        * Organization directory
+        * Communication providers:
+            * Mail servers
+            * Video conferencing
+        * Analytics, e.g. visitors of a site published by a team/person
+        * Feedback, page/document ratings
+* Perform model analysis. E.g. identify bottleneck teams and people with high "packet loss rate" - not reading e-mails, not attending meetings because they are multi-booked, starting/joining meetings late. Or people scheduling meetings which are not attended or sending e-mails which are not read.
+* Generate and publish documentation/reports from the model. Different types of documentation and reports for different audiences.        
+            
+### Organizational insight
+
+Organizations may benefit from sites/portal which provide in-depth information about the organization structure and its members. 
+E.g. in addition to publishing a reporting structure (org charts) it might be beneficial to publish a short bio/resume of organization members, their job responsibilities, goals, or even asks for help. E.g. I have this backlog of problems, would appreciate help in solving them[^4].
+
+[^4]: This one aligns with the innovation pipeline. I.e. the pipeline can also be an "exchange" with bids and asks - problems and ideas how to solve them. They can be both ideas - unelaborated ideas with just the WHAT and WHY would be problem statements.
+
+One flavor or such reporting is a portal of components/products/services offered by a team (e.g. shared libraries) with each offering having assigned an owner engineer and engineer pages having an engineer bio, a list of components/products they own, and other information about them - participation in discussion forums, etc.
+
+### Analysis
+
+There is a lot in common between organizations and concurrent/distributed software systems - both consist of processing units (humans and automated systems in organizations and servers/cores/threads in software systems).
+Processing units exchange messages to "activate” other units and together achieve a common goal.
+
+E.g.
+
+Kubernetes | Organization
+---------- | ------------
+Cluster    | Org unit
+Node       | Site/Campus/Building
+Pod        | Co-located team
+Containers | Team members playing different roles
+
+In this sense organizations can be monitored and "profiled" as computer systems to identify improvement opportunities (bottlenecks).
+
+In computer systems there 3 types of bottlenecks:
+
+* I/O
+* CPU
+* Memory
+
+For humans we can identify the following types of bottlenecks:
+
+* I/O - not reading e-mails, not responding to e-mails, not responding to meeting invites and not attending meetings.
+* CPU - working long hours and on weekends.
+* Memory - too many responsibilities and context switching between tasks. It has been shown that [context switching](https://dansilvestre.com/context-switching/) is extremely costly for humans - 20% drop in productivity for each additional task. It is similar to [thrashing](https://en.wikipedia.org/wiki/Thrashing_(computer_science)). It may lead to making sub-optimal decisions due to not investing enough time into [decision analysis](https://en.wikipedia.org/wiki/Decision_analysis).
+
+#### Approach
+
+* Information can be collected from multiple systems:
+    * Messaging/Meeting servers:
+        * Messages
+            * Number of messages,
+            * Number of unread messages,
+            * Response rate and time to respond on messages that require response,
+            * Number of recipients,
+            * Organizational reach - recipient's positions in the organization. An [example](https://content.linkedin.com/content/dam/blog/en-us/corporate/blog/2011/01/alisnetwork-1.jpg) of org. reach visualization which can be generated from collected data. Data can be aggregated to make visualizations not as cluttered. There are many more [possible visualizations](https://echarts.apache.org/examples/en/index.html#chart-type-graph).
+        * Meetings - number, overlaps, response rate (accept/deny).
+        * Video conferencing - attendance, starting, joining, and ending on time.
+* There is an option to mark a meeting invite and an e-mail as "Not relevant" and "Response required". E.g. a special category for "Not relevant" and a convention that people in the TO list are expected to respond. More feedback options may be identified going forward.
+* Organization efficiency is analyzed based on hard and soft data - information pulled from systems, as well as surveys. For example - Meeting scheduling/Video conferencing cross-referencing - how many who accepted a meeting have attended, consistency of attending recurring meetings, e.g. scrum calls.
+* Organizational changes are made based on data and then validated using newly collected data.
+* E-Mail and meeting etiquette is an integral part of they organizational hygiene.
+* Individuals may see where they are in their "organization fitness" similar to group comparisons in fitness apps. E.g. percentile in meeting attendance comparing to the person's department and the organization in total. Similarly, organizations can be compared.
+
+#### Value proposition
+
+Identifying and resolving organizational inefficiencies.
+Examples of inefficiency:
+
+* Decision makers do not attend meetings because they are too busy - decisions are not made, meetings get rescheduled, non-decision makers are in a waiting state which is a waste of company resources and detrimental to the workforce morale.
+* People are late to open or join meetings, the group is waiting.
+* People do not respond to meeting invites - other people wait for them and then have to reschedule.
+
+
+
+
+L/in visualiz
+
 Analogy with software system - kubernetes cluster. Disclaimer people/computers.
 
 Challenge/solution - generic, concrete.
