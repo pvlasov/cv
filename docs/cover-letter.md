@@ -653,7 +653,7 @@ Examples of inefficiency:
 
 * Use [MBSE](#mbse) to create a meta-model supporting [Multiple Criteria Decision Analysis](https://en.wikipedia.org/wiki/Multiple-criteria_decision_analysis) methodologies such as [Analytic Hierarchy Process](https://en.wikipedia.org/wiki/Analytic_hierarchy_process), [Weighted Product Model](https://en.wikipedia.org/wiki/Weighted_product_model), [Weighted Sum Model](https://en.wikipedia.org/wiki/Weighted_sum_model).
 * Publish model documentation.
-* Optionally create a flow model documenting the decision flows. 
+* Optionally create a flow model documenting decision making flows. 
 * Decision models are populated by multiple experts and are stored in a version control system in a single repository or multiple repositories, e.g. to enforce access control.
 * Model aggregation can be done at the source level or "binary" level - models a published to a binary repository and then referenced by other models.
 * Decision documentation is generated from the models.
