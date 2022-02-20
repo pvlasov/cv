@@ -519,7 +519,7 @@ Engineering models can be used for documenting software components (and other th
 Some potential uses of engineering models:
 
 * Documentation portals for internal shared/reusable components
-* Solutions built InnerSource approach
+* Solutions built with InnerSource approach
 * Ideation/Innovation - see the innovation pipeline below.
 
 [Example of a site generated from an engineering model](https://docs.nasdanika.org/index.html).
@@ -649,16 +649,4 @@ Examples of inefficiency:
 * People are late to open or join meetings, the group is waiting.
 * People do not respond to meeting invites - other people wait for them and then have to reschedule.
 
-
-
-
-L/in visualiz
-
-Analogy with software system - kubernetes cluster. Disclaimer people/computers.
-
-Challenge/solution - generic, concrete.
-
-
-
-
-Self-contained inner source
+---
