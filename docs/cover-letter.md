@@ -344,14 +344,131 @@ If the build fails, then the development team would be notified and will review 
 * Solution instantiators shall produce the same result when given the same input. It is not always true for people.
 * Extensibility - there might be "base" instantiators which define extension points to allow customization. It may be leveraged in a large organization where a central team produces such "base" instantiators and then regional/LOB teams customize them to their needs. The same approach can be applied to configuration models using template/prototype chains - a config model can define template/prototype or multiple templates/prototypes similar to how docker images define base image using ``FROM``.  
 
-
 ## Delivery mechanisms
 
-Cloud providers - API, CLI, IDE plug-ins
+The purpose of delivery mechanisms is to make right offerings available to the right audience. 
+E.g. a solution instantiator of correct version to developers in team A, and a different version in team B, if these teams code against different releases or variations of the tech stack. 
+
+A number of cloud providers make their client offerings available in 3 forms:
+
+* REST API's
+* CLI (Command Line Interface)
+* IDE packages or plug-ins
+
+All of these delivery mechanisms are products with releases and release numbers delivering a coherent set of offerings, e.g. multiple commands in the CLI.
+
+Technology organizations may benefit from the same approach by assembling productivity boosters produced by
+different teams into coherent packages. 
+This approach will help with:
+
+* Promotion - finding one package and then needed functionality within it is easier than finding just that piece of functionality
+* Delivery - install a single package
+* Credibility - a particular package version shall be assembled to work with a particular release or variation of the tech stack. It is easier to trust a single package than to multiple versions of multiple individual offerings.
+
+This section provides some thoughts on how the delivery mechanisms and offerings can be implemented.
+
+### Offerings
+
+Where possible the offerings shall be coded in a delivery-mechanism independent way which, at the same time, integrates well with the delivery mechanisms.
+
+The Nasdanika Execution Model is one of such mechanisms - it was inspired in part by Eclipse progress monitor and diagnostic and as such integrates well with Eclipse, e.g. progress dialogs.
+There is also a CLI "adapter" for the Nasdanika Execution Model (see the CLI section).
+And being a Maven library it can be used from Web applications, e.g. SpringBoot microservices.
+
+Offerings shall be published as Maven jars to be later assembled into delivery packages.
+
+### API
+
+API's can be implemented with, say, SpringBoot microservices. 
+It may not make sense to package some offerings as API's. 
+For example, offerings which work extensively with a local file system and do not communicate with remote systems are better off as CLI or IDE plug-ins. 
+Some offerings, though, may have a local part, e.g. scanning a directory, and a remote API part which the local part interacts with, e.g. storing digests of the files to a database or looking for the digests in the database. 
 
 ### Eclipse Ecosystem
 
+The goals of Eclipse Ecosystem in an organization is to:
+
+* Leverage external offerings in a controlled way
+* Ability to build custom Eclipse packages (products) by extending packages provided by the Eclipse Foundation and other vendors, e.g. Spring Tool Suite.
+* Ability to build and publish custom plug-ins including Eclipse Help plug-ins with documentation.
+* Provide discovery mechanisms for offerings:
+    * A portal listing downloads and update sites
+    * Eclipse Marketplace server for installation in the IDE using Eclipse Marketplace Client
+
+The diagram below shows a possible structure of such ecosystem.
+
+![eclipse-ecosystem](eclipse-ecosystem.drawio.png)
+
+#### Third-party Eclipse Packages
+
+Eclipse packages are typically distributes as zip files.
+Some offerings come in two flavors - an Eclipse package to download and use and a P2 repository to install into an existing Eclipse.
+Third-party packages shall be downloaded by an authorized group within the organization and stored into a binary repository.
+
+#### Third-party P2 Repositories
+
+A P2 repository (update site) is a collection of Eclipse plug-ins and features. 
+They come in several flavors: 
+
+* A regular repository - a collection of files. Can be served locally or over HTTP.
+* An archived repository - can be served locally. Has to be downloaded first if remote.
+* A composite repoisitory - a collection of references to other repositories. Can be served locally and remotely.
+
+Depending on the repository flavor it can be mirrored or downloaded. 
+It can also be proxied if the organization's binary repository supports proxying of P2 repositories.
+
+#### Binary Repository
+
+A binary repository may be a simple directory on a web server where third-party packages are downloaded, thrird-party repositories are mirrored or downloaded, and internal repositories are deployed.
+
+Or it can be a specialized binary repository which may support proxying of P2 repositories.
+
+It can also be a combination of the above.
+E.g. if all binaries are to be stored in a specific repository because it is requied by the organizational policies, but the repository does not support serving P2 repositories, then a P2 repository can be stored in the binary repository as an archive and then taken from it, expanded, and served over HTTP from a web server.
+
+#### Source repository
+
+Contains sources for in-house Eclipse solutions - plug-ins, products/packages, repository definitions including composite repositories.
+It may also contain data for the Private Eclipse Marketplace.
+
+#### Private Eclipse Marketplace
+
+Allows to discover and install plug-ins from Eclipse using the [Eclipse Marketplace Client (MPC)](https://www.eclipse.org/mpc/). 
+The marketplace shall provide [Marketplace REST API](https://wiki.eclipse.org/Marketplace/REST).
+It may also feature Web UI to use from the outside of Eclipse IDE. 
+
+A simple implementation of a Private Eclipse Marketplace can be built with [MBSE](#mbse) - data can be stored in one or more Git repositories.
+It would be loaded into a model and the model would feed the REST API. 
+Web UI can be generated from the model and may contain dynamic parts, e.g. search.
+
+The marketplace can be re-deployed with new data on regular intervals or on Git push, with possible throttling.
+Moderation of changes can be done using pull requests.
+
+The Web UI can also serve as a discovery portal for P2 repositories and Eclipse packages.
+As a matter of fact, it makes sense to start with a discovery portal and then add Marketplace functionality to it.
+
+
+#### Developer Workstation
+
+There would be two types of developers:
+
+* Consumers - these people download Eclipse packages and install plug-ins.
+* Contributors - these people also develop packages and plug-ins. They push their code to the source repository. It would trigger a build. For plug-ins, products, and repositories it would be a Maven/Tycho build deploying a product or repository to the binary repository. For marketplace/portal entries the build would deploy a new version of the portal/marketplace.
+
 ### CLI
+
+Organization CLI can be implemented as as command suite using [picocli](https://picocli.info/). 
+[Nasdanika Core CLI](https://docs.nasdanika.org/modules/core/modules/cli/index.html) is built on top picocli and provides ability to use the Nasdanika Execution Model from the command line. 
+It also provides HTML documentation generator - [documentation example](https://nasdanika.org/builds/develop/doc/reference/cli/nsd/codegen.html).
+[Nasdanika Core EMF](https://docs.nasdanika.org/modules/core/modules/emf/index.html) adds command classes which allow to load and execute models.
+
+The below diagram shows how a CLI command suite can be implemented in a decoupled way leveraging [Java service providers](https://www.baeldung.com/java-spi).
+
+![cli](cli.drawio.png)
+
+* The core framework defines a main class and a service provider interface. The main class discovers service provider implementations and delegates to them. Service provider methods on the diagram are just for example. The real service provider would have more methods, in particular methods for building command hierarchies by bottom-up linking of child commands to parent commands.
+* Provider jars contain commands implementing the service provider interface.
+* The assembly is a [fat jar](http://tutorials.jenkov.com/maven/maven-build-fat-jar.html) with provider dependencies in ``pom.xml``.  
 
 
 ### Documentation as code
@@ -359,8 +476,6 @@ Cloud providers - API, CLI, IDE plug-ins
 Both solution instantiation and knowledge delivery mechanism
 
 Aggregation vs federation?
-
-#### Maven sites
 
 #### Application model
 
