@@ -320,6 +320,5 @@ FoxPro 2.6 development.
   gtag('js', new Date());
 
   gtag('config', 'G-1584WH6CVM');
-</script>    
-    
+</script>        
 </html>    

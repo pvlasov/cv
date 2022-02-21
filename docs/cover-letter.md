@@ -670,3 +670,16 @@ Value proposition:
 * With AHP it is possible to check for decision consistency at an individual expert level and cross-expert.
 
 ---
+
+
+
+<html>   
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1584WH6CVM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1584WH6CVM');
+</script>        
+</html>    
