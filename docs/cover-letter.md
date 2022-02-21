@@ -231,6 +231,8 @@ Teams may sign their contributions to the model.
 The instantiation process will check the signatures and will fail if, say, a model object which is supposed to be signed by a security team is not signed, the signature is invalid (it was modified after it was signed),
 or it is signed, but not by the security team's private key.
 
+In [Collaborative Decision Making as Code](#collaborative-decision-making-as-code) experts and decision makers may sign their analysis and decisions captured as models.
+
 For models which are loaded from multiple source repositories one option to implement signing is to mimic jar signing - have a build process which is triggered on repository push. 
 The build process would load the model from source files, e.g. YAML, inject signatures, store to XMI, and then publish a jar with the model to a Maven repository.
 Downstream models would have the signed model jar as their pom dependency and load the model using the ``classpath://`` URI scheme.
