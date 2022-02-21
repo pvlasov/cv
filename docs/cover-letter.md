@@ -75,7 +75,8 @@ The value proposition of this approach:
 * Documentation is linked to model elements which provides fine-grained structure and makes it easier to capture and find details.
 * Documentation may contain diagrams defined in text. E.g. documentation for a class may contain a component diagram, for an attribute a state diagram, and for an operation a sequence diagram.
 * Loading from different resources provides an abstraction layer allowing developers focus on business rather than integration logic.
-* Structured data captured in a "low-tech" way - as text. No need in hosting databases. Data can be produced by both humans and systems. Capabilities of modern computers can easily handle models with millions of elements - it might not be enough to process runtime data such as log entries, but is more than enough to model organizations, software systems, cloud deployments, etc. Runtime data can be pulled in an aggregated form.
+* Structured data captured in a "low-tech" way - as text. No need in hosting databases - your version control system is your database with a time dimension. Data can be produced by both humans and systems. Capabilities of modern computers can easily handle models with millions of elements - it might not be enough to process runtime data such as log entries, but is more than enough to model organizations, software systems, cloud deployments, etc. Runtime data can be pulled in an aggregated form.
+* Collaboration - text-based artifacts in version control. Branch/fork, create a pull request, merge using the same tooling which is used for source code, no need in specialized model diff/merge tools.
 
 The below diagram shows the elements of the approach: 
 
@@ -176,6 +177,7 @@ Text editors with syntax validation, highlighting, and auto-completion can be cr
 
 Models can also be edited in a web browser using:
 
+* A version control Web UI can be used as an in-browser editor for models stored in a text-based format, e.g. YAML, in a version control system such as GitHub
 * [Sirius Web](https://www.eclipse.org/sirius/sirius-web.html)
 * Form editors and other Eclipse UI using [Eclipse RAP](https://www.eclipse.org/rap/)
 * A regular web application.
@@ -212,6 +214,26 @@ With this approach configurations may be validated/tested separately from the ap
 They can be "pre-validated" and "pre-deployed" - loaded from YAML and other resources, saved as XMI and deployed to a binary repository, maybe as a Maven jar.
 
 Having a configuration model also opens an opportunity to use Eclipse-based editors instead of or in addition to working with YAML or JSON in a text editor. 
+
+### Object signing
+
+The concept of object signing is similar to the concept of [jar signing](https://docs.oracle.com/javase/tutorial/deployment/jar/signing.html) and [JWT](https://jwt.io/introduction) signing - digital signatures are added to objects
+which implement ``Signed`` interface in the same way as [markers](https://docs.nasdanika.org/modules/core/modules/ncore/Marker.html) are added to objects implementing [Marked](https://docs.nasdanika.org/modules/core/modules/ncore/Marked.html) interface at load time for YAML-based resources.
+Signatures can be carried over during transformations along with the containing object similar to how markers are carried over.
+
+Signed objects can verify the integrity of the features contained within it - both attributes and references.
+When objects are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it.
+
+Object signing can be used in models which are authored by multiple parties with different authorities. 
+E.g. in the solution instantiation below there might be a configuration model for instantiating a public cloud application.
+That model might have to be populated by multiple teams in the organization - developers, networking, security, architecture. 
+Teams may sign their contributions to the model.
+The instantiation process will check the signatures and will fail if, say, a model object which is supposed to be signed by a security team is not signed, the signature is invalid (it was modified after it was signed),
+or it is signed, but not by the security team's private key.
+
+For models which are loaded from multiple source repositories one option to implement signing is to mimic jar signing - have a build process which is triggered on repository push. 
+The build process would load the model from source files, e.g. YAML, inject signatures, store to XMI, and then publish a jar with the model to a Maven repository.
+Downstream models would have the signed model jar as their pom dependency and load the model using the ``classpath://`` URI scheme.
 
 ## Solution Instantiation
 
