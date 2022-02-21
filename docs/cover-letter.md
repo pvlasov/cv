@@ -233,6 +233,9 @@ or it is signed, but not by the security team's private key.
 
 In [Collaborative Decision Making as Code](#collaborative-decision-making-as-code) experts and decision makers may sign their analysis and decisions captured as models.
 
+Signatures can also be used to track approvals.
+In this case objects may have multiple signatures - author's signature and then reviewers/approvers signatures.
+
 For models which are loaded from multiple source repositories one option to implement signing is to mimic jar signing - have a build process which is triggered on repository push. 
 The build process would load the model from source files, e.g. YAML, inject signatures, store to XMI, and then publish a jar with the model to a Maven repository.
 Downstream models would have the signed model jar as their pom dependency and load the model using the ``classpath://`` URI scheme.
