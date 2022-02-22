@@ -202,6 +202,19 @@ The first example is Nasdanika.org site which is generated from several models:
 * Application model + page template -> resource model.
 * Resource model -> HTML site.
 
+#### REST API
+
+A REST API can be created by exporting the model into a set of cross-referencing JSON files. 
+Such API wouldn't be able to provide dynamic behaviors such as processing query strings, but can be good enough for a variety of cases.
+
+#### JavaScript client
+
+A JavaScript client with dynamic behavior can be generated from a model or from a meta-model. 
+If generated from a meta-model such a client would retrieve model data from external resources, e.g. using the REST API explained above.
+If generated from a model the client may contain the model data. 
+It is also possible to have intermediary solutions - some data can be hard-wired into the client at generation time and some data may be retrieved from external resources. 
+
+
 ### Using models in Java code
 
 It is also possible to use a loaded model directly without a transformation.
