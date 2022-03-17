@@ -709,6 +709,175 @@ Value proposition:
 * Decision chaining/aggregation. 
 * With AHP it is possible to check for decision consistency at an individual expert level and cross-expert.
 
+## Enterprise Domain-Driven Design
+
+This section outlines how [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) can be implemented in an organization
+leveraging [MBSE](#mbse) and (Solution Instantiation)(#solution-instantiation) explained above.
+
+One of definitions of software development is _binding decisions to make them executable_. 
+The approach outlined in this section binds decisions by progressively elaborating models from generic to specific, adding facets to them, e.g. a caching facet, and then generating executable solutions from the models.
+This way each model element is traceable to a piece of runtime functionality, e.g. a method, component, endpoint.
+
+### Scenario
+
+A financial organization has several payment processors which operate with different data structures.
+Payment processors expose multiple "functions" taking different parameters and returning different combinations of data elements. 
+Such combinations may overlap, i.e. a particular data element can be obtained by calling different functions.
+To reduce load on payment processors, billed activity, which is immutable, is offloaded to a relational database.
+There are hundreds of data structures with thousands of data elements.
+There is a cost associated with calling payment processor functions.
+The majority of interactions with the payment processors are reads.
+There are multiple clients - web applications, mobile applications, partners such as aggregators.
+
+The organization is looking to:
+
+* Reduce operating costs by optimizing interactions with the payment processors - retrieving only data elements which are used by a particular client. Partial an progressive population of the client data model shall be transparent to the client code.  
+* Improve customer satisfaction by keeping UI response times short.
+* Leverage a common data model where possible while retaining the ability to retrieve payment-processor specific data elements where needed.
+
+The high-level domain model contains the following classes:
+
+* Customer - has one or more accounts hosted in one or more payment processors.
+* Account - belongs to one or more customers, with one customer being the primary. Contains statements. 
+* Statement - contains transactions. The first statement in the statement list is "current" or "unbilled" activity. Transactions in this statement may change. The rest is billed activity, immutable.
+* Transaction - has multiple attributes (data elements), many of which are used internally by the payment processor business rules and may occasionally be needed by clients.
+ 
+![domain-model](domain-model.png)
+
+### Data models
+
+The first thing which the organization may do is to create and publish data models. 
+There might be multiple related data models. 
+The models would contain both data attributes and operations.
+E.g. Customer may have an operation ``openAccount(): Account`` and Account may have an operation ``transfer(amount: BigDecimal) : Transaction``.
+
+* Payment processor data models - these models can be generated from existing data structure definitions, e.g. Word or Excel files using [Apache POI](https://poi.apache.org/), XML, source files. These models are most-specific and may extend more generic models listed below.
+* Line-of-business data models, e.g. models for credit cards, checking and savings accounts, mortgage, investment - these models extend the generic model and add specifics.
+* Enterprise data model - contains definitions which are common for all lines of business and payment processors. May extend and industry data model.
+* Industry data model, e.g. [BIAN](https://bian.org/servicelandscape-8-0/views/view_31853.html)
+* Client models - subsets of the above models containing only elements used by a particular client, e.g. a Web application or a partner such as an aggregator. These models are implemented as "facets" for the above models may have associated additional facets, e.g. caching policies. More about client models below. Client models may also contain application-specific model elements, which may or may not extend elements of the other models.
+
+#### Model evolution
+
+All models shall be packaged as Maven jars and published to an binary repository.
+This approach allows unified approach to publishing and consumption of artifacts, including models.
+
+A model would produce the following artifacts:
+
+* Jar file with generated Java classes.
+* Jar file with model files and related documentation files.
+* Published model documentation with integrated search. [Example](https://docs.nasdanika.org/modules/core/modules/flow/index.html). Can be published as an intranet site and as a Maven jar as well. Model documentation shall contain documentation for all dependency models, i.e. it should be self-contained. Model documentation may also be published as Eclipse help plug-in.
+
+Models will form a dependency hierarchy - more specific models will depend on more generic.
+Model annotations can be used to establish ownership of model elements. 
+For models stored in Git [jGit](https://www.eclipse.org/jgit/) can be used to establish traceability from model elements to remote commits. Then [blame](https://git-scm.com/docs/git-blame) can be used to trace to the author. [Example](https://docs.nasdanika.org/togaf/adm/activities/adm/index.html) - click the "Origin" property link.
+
+It makes sense to start with the most specific models and gradually migrate common classes, features, and operations to more generic models:
+
+* Release 1.0 of a payment processor model would be independent on a common model which would not exist yet.
+* Things common between several payment processors in the same LOB can be extracted into a common model 1.0 and payment processors models 2.0 would extend the common model 1.0.
+* Over time more model elements can be moved to the common model - this is similar to Java "pull up" refactoring.  
+* Multiple layers of common models can be introduced as mentioned above.
+
+Clients shall be able to use multiple versions of models at the same time, e.g. N-2 versions shall be supported.
+Different models can be owned by different groups at different levels of the organization and migration of model elements to more generic models shall be a joint effort of the the model owners.
+It may follow Inner/Open Source approach - proposal, review, implementation. 
+
+#### Client models
+
+While data models are defined as Ecore models, client models are defined using a "facet" approach, similar to Ecore genmodels - they contain references to the data models for included elements.
+
+Client models can be created/edited using a variety of approaches:
+
+* Eclipse master-detail editor with check tree to select elements to be included into the client models. When an element is checked, additional UI elements become available to configure the element, e.g.:
+    * Retrieval policy - where to load data from. E.g. the payment processor for unbilled activity and a relational database for billed activity
+    * Caching policy - where and how to cache    
+    * Cache invalidation policy
+    * UI bindings, e.g. how to display a data element
+    * Fetch group - which elements shall be retrieved together
+    * Pre-fetch - dependencies between model elements and fetch groups to optimize user experience without unnecessarily overloading the host systems. E.g. when the client code calls ``Customer.getAccounts()`` the accounts may fetch only account number and balance attributes and initiate an asynchronous pre-fetch request for unbilled activity because it is highly likely that users would navigate to account details pages once they see a list of accounts with balances. Then, once the current statement (unbilled activity) is accessed by the client code, a pre-fetch for the first billed activity statement can be initiated. Pre-fetch shall be transparent to the client code - if it is still in progress, the retrieving method shall block waiting for the request to complete.     
+    
+Client code may provide synchronous API returning data or model elements and asynchronous API returning [futures](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html) or promises.
+
+Client models may be used to generate code for multiple targets, e.g.:
+
+* Java client API to be used in, say, microservices.
+* Integration code, e.g. [Spring Integration](https://spring.io/projects/spring-integration) or [Apache Camel](https://camel.apache.org/), for adapters/transformers used by other clients.
+* JavaScript API.
+
+Client models can be cascaded via "extends" or "from" relationship. 
+Extension model may exclude additional attributes and add more configuration details.
+E.g. an application may define a common client model and then different components of the application may extend that common model and customize it.
+
+### System models
+
+System models can be defined on top of data models providing organization-specific modeling language as opposed to industry languages which are not aware of organization's assets.
+
+For example, there might be a model of a payment processor with operations such as ``getCustomer(customerID: String) : Customer``. 
+There might be different ways to instantiate a payment processor model object with different configurations.
+E.g. there might be a stub payment processor for testing, a payment processor connecting to a specific environment, e.g. TEST or UAT. 
+Different instances of payment processor may utilize different connectivity and caching mechanism, all transparent to the client code.
+
+Similarly, there might be models for middleware components, e.g. a payment processor adapter performing data conversion, caching, and other functions.
+
+An organization may build organization-specific tooling for building solutions from data and system models.
+E.g. a graphical editor using [Eclipse Sirius](https://www.eclipse.org/sirius/).
+With such tooling developers will operate at a higher level of abstraction and will be isolated of low level details.
+Also, because runtime code will be generated using organization-specific generators, it would allow to perform optimizations based on collected access metrics, which might not be possible using industry solutions.
+E.g. grouping of attributes into fetch groups and pre-fetch behavior can be done based on access metrics. E.g. if 70% of time the current statement is accessed after a list of accounts is retrieved, then it makes sense to pre-fetch it. 
+Moreover, fetch groups and pre-fetch policies may be based on customer value. I.e. for high value customers more data may be retrieved and pre-fetched to optimize their experience at the higher processing cost of retrieval of data which might not be used.
+
+Solutions created using system models may themselves be wrapped into model elements in subsequent model releases.
+For example, the Enterprise Systems model 1.0 may be based on Product Processor model 1.0 and contain only one organization-specific element - the product processor. 
+A product processor adapter can be built using the model and published for consumption. 
+Then the Enterprise Systems model 1.1 may include two elements - the product processor and the adapter.
+
+Logical solution models built from  can be combined with client data models to generate runtimes which contain just functionality to serve these specific clients.
+I.e. only the data model versions which the clients use and only the data attributes which they use.
+
+### Transformers
+
+A lot of enterprise integration deals with transformations. There are the following types of transformations:
+
+* Transport, e.g. HTTP to JMS,
+* Format, e.g. JSON to XML,
+* Structure, e.g. building a composite data structure from responses from several back-end calls.
+
+Transport transformations may leverage system models to abstract connectivity details.
+
+Structure transformations may be defined using client models with helper facets defining how to retrieve and update a particular data element.
+For updates the client can define ``commit()`` method at the connection object (the root object) and it may have logic to select different update strategies based on what was modified.
+Structure transformations can be defined in YAML or XML. 
+In the case of XML the following options are available for transformation editing:
+
+* Tree editor
+* Sirius-based diagram editor similar to [IRI Workbench](https://www.eclipse.org/sirius/images/gallery/iri-tmb.png)
+* [Nebula TreeMapper component](https://www.eclipse.org/nebula/widgets/treemapper/treemapper.php) (alpha)
+
+### Caching
+
+Caching can be done on multiple levels. 
+
+Complexities of caching can be hidden from the clients using models. It includes:
+
+* Fetch groups
+* Pre-fetching
+* Update/invalidation
+* Cache chaining
+
+Also, caching policies may differ between clients and even between customers based on:
+
+* Client device
+* Network throughput
+* Client capabilities, e.g. RAM/Disk availability 
+
+Some types of cache:
+
+* Object model in the browser. JavaScript API for the object model is generated from the client model, progressively populated as the client code navigates the model
+* Memory-sensitive cache in a micro-service. Falls-back to a local storage cache. This type of cache and local storage cache require session stickiness. This type of cache does not survive container restart.
+* Local/ephemeral storage cache. Faster than a distributed cache. May survive some types of container restart. Falls back to the distributed cache.
+* Distributed cache. Survives container restarts, but introduces network chattiness, additional infrastructure requirements and potentially licensing costs.
+
 ---
 
 
