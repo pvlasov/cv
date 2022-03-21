@@ -878,6 +878,11 @@ Some types of cache:
 * Local/ephemeral storage cache. Faster than a distributed cache. May survive some types of container restart. Falls back to the distributed cache.
 * Distributed cache. Survives container restarts, but introduces network chattiness, additional infrastructure requirements and potentially licensing costs.
 
+Cache update/invalidation can be performed using notifications.
+It requires registration of a cache with its fall-back cache, so the fallback cache can notify its client caches of updates.
+E.g. a microservice memory-sensitive cache can register with its fall-back file-based cache, which in turn may register with a remote cache in the back-end adapter.
+Complexities of registration and notification propagation shall be hidden from developers by models and generators.
+
 ---
 
 
