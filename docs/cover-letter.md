@@ -695,7 +695,7 @@ Examples of inefficiency:
 * Publish model documentation.
 * Optionally create a flow model documenting decision making flows. 
 * Decision models are populated by multiple experts and are stored in a version control system in a single repository or multiple repositories, e.g. to enforce access control.
-* Model aggregation can be done at the source level or "binary" level - models a published to a binary repository and then referenced by other models.
+* Model aggregation can be done at the source level or "binary" level - models are published to a binary repository and then referenced by other models.
 * Decision documentation is generated from the models.
 * With multiple experts participating it is possible to have a hierarchy of experts following the criteria hierarchy and different weights for experts. E.g. a senior developer may have higher weight than a junior developer. 
 
