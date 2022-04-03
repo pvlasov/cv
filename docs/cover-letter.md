@@ -269,13 +269,14 @@ In other words, solution instantiators shall be used to instantiate "sibling" so
 #### Pattern
 
 Define and publish a pattern. 
-Pattern documentation shall specify "variation points" - what can be different between differnent instances. 
+Pattern documentation shall specify "variation points" - what can be different between different instances. 
 E.g. cache or database or a number of replicas. 
 
 Patterns shall be defined by subject matter experts.
 For example a cloud solution pattern shall be defined by people with a deep experience with cloud technologies, e.g. a cloud architecture group.
 
-The published pattern has a value on its own without a solution instantiatior, because it may be created at a later point of time once the pattern has demonstrated its usefulness.
+A published pattern has a value on its own without a solution instantiatior.
+An instantiator may be created at a later point of time once the pattern has demonstrated its usefulness.
 
 The pattern shall be treated as a product with releases and release numbers. 
 It may be stored in a version control system and pattern documentation can be generated and published using one of
@@ -309,7 +310,7 @@ One way to create an instantiation model is to use [Nasdanika Exec Model](https:
 Additional execution participants can be created as needed.
 Such participants may leverage existing generation solutions, e.g. [Spring Initializr](https://start.spring.io/) - out of the box or customized to organization's needs.
  
-Nasdanika Execution Model supports rollbacks, which can be important for instantiation of complex solutions where one of instantiation steps may fail - in this case the instantiator will clean up afeter itself.
+Nasdanika Execution Model supports rollbacks, which can be important for instantiation of complex solutions where one of instantiation steps may fail - in this case the instantiator will clean up after itself.
 
 ##### Configuration model
 
@@ -322,7 +323,7 @@ Such permits may have an expiration date.
 Configuration models may be stored in different formats and edited in a variety of ways as explained in the [MBSE](#mbse) section. 
 
 If a configuration model is stored in YAML in Git one way to validate authority at the instantiation time is to check who's committed a particular configuration file or changed a particular line of code (using [blame](https://git-scm.com/docs/git-blame)). 
-In this case if a developer modifies a configuration element which is supposed to be modified by an architect the instantiation will fail.
+In this case, for instance, if a developer modifies a configuration element which is supposed to be modified by an architect the instantiation will fail.
 
 #### Instantiate
 
@@ -342,10 +343,10 @@ The instantiation process (or some of its parts) can be tested using the referen
 
 * A web wizard is used to collect user input to create a new cloud application.
 * The input collecting application creates a request YAML file and pushes it to a Git repository.
-* A Jenkins job is triggered by the push. It inspects the commit message and starts the instantiation process passing the configuratin YAML to is as input. The process:
+* A Jenkins job is triggered by the push. It inspects the commit message and starts the instantiation process passing the configuration YAML to it is as input. The process:
     * Creates Git repositories.
     * Generates code and pushes to the repositories.
-    * Creates build jobs and triggers a build to the development environment
+    * Creates build jobs and triggers a build to the development environment.
 
 #### Evolution
 
@@ -363,7 +364,7 @@ In case of ``Merge`` the instantiator would do the following:
 
 * Check if the resource was modified since the last instantiation. For version-controlled files one way to do it is to use jGit and see who last committed the file. If the committer ID is the same functional ID which is used for instantiation that would mean that the file was not touched and can be overwritten.
 * If the resource was modified use a merger applicable for the resource format. For Java resources there is JMerge which detects manual changes using ``@generated`` JavaDoc tags - it overwrites only classes and members with such tag present. Other file resources can be merged using a 3-way patch in a version-controlled environment, which is[^3]: 
-    * Find the previous generated revision
+    * Find the previous generated revision.
     * Do a diff between the previous and the newly generated code and create a patch. There are Java libraries to do diff/patch for [text files](https://github.com/google/diff-match-patch) and for formats such as [JSON](https://github.com/java-json-tools/json-patch/blob/master/src/main/java/com/github/fge/jsonpatch/diff/JsonDiff.java) and [XML](https://github.com/dnault/xml-patch).
     * If there is no difference do nothing - keep the current revision as it is.  
     * Otherwise apply the patch to the current revision.
