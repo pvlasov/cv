@@ -255,7 +255,7 @@ Downstream models would have the signed model jar as their pom dependency and lo
 
 ## Solution Instantiation
 
-Solution instantiation is a form of transformation of one or models into a "solution", e.g. a cloud application or a documentation site.
+Solution instantiation is a form of transformation of one or more models into a "solution", e.g. a cloud application or a documentation site.
 Code generation is another example of solution instantiation.
 
 This section explains an approach which allows parallel evolution of the source models and the generated/instantiated solution with ability to re-instantiate a solution from the model preserving 
