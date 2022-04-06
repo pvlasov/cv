@@ -583,7 +583,7 @@ Ideas can be captured using the engineering model possibly in combination with f
 * Document HOW - elaborate features into issues.
 * Document WHEN - group features and issue into releases.
  
-The idea does not have to be captured in its entirety before submission.
+An idea does not have to be captured in its entirety before submission.
 E.g. it may contain just a vision from which other elements will be elicited at later stages.
 
 An idea definition can be stored in a version control repository.
@@ -595,13 +595,27 @@ The portal can also be build using the engineering model.
 The innovation community reviews the submitted idea and may provide feedback. 
 Some community member may collaborate with the idea author to elaborate the idea further in an InnerSource fashion.
 
-If the idea requires funding or other form of leadership engagement the idea community may submit a request
+If an idea requires funding or other form of leadership engagement the idea community may submit a request
 for funding/sponsorship.
 The request would be reviewed by a governing body, say "Innovation Steering Committee" which would decide the course of actions.
 Another possibility is to support ideas with most active communities.
 
 With this approach each innovation voice can be heard. 
 It will also drive collaboration across teams within the organization.
+
+One flavor of this approach is "Innovation Marketplace" which may work like this:
+
+* An engineering model is created defining WHAT is needed. It may be done by defining personas and their goals which need to be addressed.
+* The models is submitted to the Innovation Marketplace or Idea Marketplace as an ASK. 
+* People who have ideas how to solve the posted ASK fork the repository and add HOW details to the model.
+* Once the HOW is defined, the HOW authors contact the ASK submitter - it can be done using pull requests.
+* If the original ASK is updated, HOW authors can pull the changes.
+* The ASK submitter may accept a pull request they like or they may just let one of the submitters know that they "won the tender".
+
+There might be multiple stages of ASK, e.g. DESIGN ASK, BUILD ASK, RUN ASK, and an idea may progress from one stage to another.
+Members of the innovation community may be interested only in ideas at a specific stage. 
+E.g. a developer may not be interested in ideas in the DESIGN ASK stage, as there is nothing to build yet.  
+
 
 ## Organization engineering
 
