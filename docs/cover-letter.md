@@ -708,21 +708,43 @@ Examples of inefficiency:
 
 * Use [MBSE](#mbse) to create a meta-model supporting [Multiple Criteria Decision Analysis](https://en.wikipedia.org/wiki/Multiple-criteria_decision_analysis) methodologies such as [Analytic Hierarchy Process](https://en.wikipedia.org/wiki/Analytic_hierarchy_process), [Weighted Product Model](https://en.wikipedia.org/wiki/Weighted_product_model), [Weighted Sum Model](https://en.wikipedia.org/wiki/Weighted_sum_model).
 * Publish model documentation.
-* Optionally create a flow model documenting decision making flows. 
+* Optionally create a [flow model](https://docs.nasdanika.org/modules/core/modules/flow/index.html) documenting decision making flows. 
 * Decision models are populated by multiple experts and are stored in a version control system in a single repository or multiple repositories, e.g. to enforce access control.
-* Model aggregation can be done at the source level or "binary" level - models are published to a binary repository and then referenced by other models.
+* Model aggregation can be done at the source level or "binary" level - models are published to a binary repository (e.g. as Maven jars) and then referenced by other models (e.g. as pom dependencies).
 * Decision documentation is generated from the models.
 * With multiple experts participating it is possible to have a hierarchy of experts following the criteria hierarchy and different weights for experts. E.g. a senior developer may have higher weight than a junior developer. 
 
 Value proposition:
 
 * Connected input collected from experts in different parts of the organization.
-* Transparency and audit trail (commits).
+* Transparency and audit trail (commits). 
 * Ability to revisit a decision when circumstances change.
 * Ability to drill-down to details why a particular alternative was assigned a certain rank.  
 * Reuse - branch/fork, modify parts of the analysis. The model may also support inheritance and instead of branching and overwriting it would be extending and overriding.
 * Decision chaining/aggregation. 
 * With AHP it is possible to check for decision consistency at an individual expert level and cross-expert.
+* Adoption of formalized decision making in the organization will allow to make higher quality decisions quicker.
+* Consistency checks, transparency, and audit trail reduce bias and influence of personal agendas.
+
+### Costs and benefits
+
+There are the following costs associated with decision analysis:
+
+* Cost of inaction, or staying with the "champion" solution - AS-IS state.
+* Cost of implementation of a selected challenger solution.
+* Cost of error - how much would it cost if we do not conduct an in-depth analysis and select a sub-optimal solution.
+* Cost of analysis, including analysis' duration cost of inaction.
+
+Because decision analysis can be performed at different depth, it is important to adjust the depth of analysis to the costs of inaction, implementation, and error. 
+
+There are also risks and timelines which can be treated in a similar way and converted to costs.
+E.g. if a solution can be implemented only after a certain date, then the cost of inaction shall be added to the solution cost (while the grass grows, the horse starves) - it will help to filter out [nirvana alternatives](https://en.wikipedia.org/wiki/Nirvana_fallacy) and ensure that choices are made between real-world solutions.
+
+Cost, risk, timelines shall not be included into the list of criteria, but rather used for cost/benefit analysis.
+In this case it might be possible to identify several solutions - transitional and final.
+
+For example, a solution which is cheaper/simpler and available short-term can be used as a starting point/prototype to 
+reduce cost of inaction/waiting and it may also help to better understand the problem being solved and clarify some assumptions.  
 
 ## Enterprise Domain-Driven Design
 
