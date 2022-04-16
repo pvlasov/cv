@@ -67,7 +67,7 @@ There is an aphorism "All models are wrong, but some are useful". If we define u
 
 The value proposition of this approach:
 
-* Low code (modeling and generation) and low tech (ability to load from YAML and other resources which do not require specialized editors) result in low cost.
+* Low code (modeling and generation) and low tech (ability to load from YAML and other resources which do not require specialized editors - see [EMF Persistence](https://docs.nasdanika.org/modules/core/modules/emf/index.html#persistence)) result in low cost.
 * Meta-model provides common "ubiquitous" language.
 * Model documentation makes this language widely available.
 * Visualizations of the model structure make it easier to grasp the model. Package diagrams provide the "big picture".
@@ -75,8 +75,9 @@ The value proposition of this approach:
 * Documentation is linked to model elements which provides fine-grained structure and makes it easier to capture and find details.
 * Documentation may contain diagrams defined in text. E.g. documentation for a class may contain a component diagram, for an attribute a state diagram, and for an operation a sequence diagram.
 * Loading from different resources provides an abstraction layer allowing developers focus on business rather than integration logic.
-* Structured data captured in a "low-tech" way - as text. No need in hosting databases - your version control system is your database with a time dimension. Data can be produced by both humans and systems. Capabilities of modern computers can easily handle models with millions of elements - it might not be enough to process runtime data such as log entries, but is more than enough to model organizations, software systems, cloud deployments, etc. Runtime data can be pulled in an aggregated form.
+* Structured data captured in a "low-tech" way - as text (as code). No need in hosting databases - your version control system is your database with a time dimension. Data can be produced by both humans and systems. Capabilities of modern computers can easily handle models with millions of elements - it might not be enough to process runtime data such as log entries, but is more than enough to model organizations, software systems, cloud deployments, etc. Runtime data can be pulled in an aggregated form.
 * Collaboration - text-based artifacts in version control. Branch/fork, create a pull request, merge using the same tooling which is used for source code, no need in specialized model diff/merge tools.
+* Traceability to sources - keep track of model element definition source - file (URI), line, number, origin and commit (see [Marker](https://docs.nasdanika.org/modules/core/modules/emf/index.html#marker)),
 
 The below diagram shows the elements of the approach: 
 
