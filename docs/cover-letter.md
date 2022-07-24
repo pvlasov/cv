@@ -750,7 +750,7 @@ reduce cost of inaction/waiting and it may also help to better understand the pr
 ## Enterprise Domain-Driven Design
 
 This section outlines how [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) can be implemented in an organization
-leveraging [MBSE](#mbse) and (Solution Instantiation)(#solution-instantiation) explained above.
+leveraging [MBSE](#mbse) and [Solution Instantiation](#solution-instantiation) explained above.
 
 One of definitions of software development is _binding decisions to make them executable_. 
 The approach outlined in this section binds decisions by progressively elaborating models from generic to specific, adding facets to them, e.g. a caching facet, and then generating executable solutions from the models.
